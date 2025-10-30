@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Uday Makawna - Game Designer & Level Designer specializing in Unreal Engine. Portfolio showcasing level design, gameplay mechanics, and interactive experiences.">
+    <meta name="keywords" content="Game Designer, Level Designer, Unreal Engine, Game Development, Gameplay Mechanics, Interactive Design, Portfolio">
+    <meta name="author" content="Uday Makawna">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Uday Makawna - Game Designer & Level Designer">
+    <meta property="og:description" content="Aspiring Game Designer with 1.4+ years professional experience and 13+ years gaming expertise. Specializing in Unreal Engine level design and gameplay mechanics.">
+    <meta property="og:image" content="./assets/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Uday Makawna - Game Designer & Level Designer">
+    <meta name="twitter:description" content="Portfolio of a Game Designer specializing in Unreal Engine level design and gameplay mechanics.">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Uday Makawna",
+      "jobTitle": "Game Designer & Level Designer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Keshod",
+        "addressRegion": "Gujarat",
+        "addressCountry": "India"
+      },
+      "telephone": "+91 93138 38248",
+      "description": "Aspiring Game Designer pursuing BTech CSE final year with specialization in Unreal Engine level design, gameplay mechanics, AI behavior, and player experience optimization."
+    }
+    </script>
+    
+    <title>Uday Makawna - Game Designer &amp; Level Designer | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="cursor-sword"></div>
+    <div id="cursor-trail"></div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="samurai-crest">
+                <svg viewBox="0 0 100 100" class="crest-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.3"/>
+                    <path d="M50 20 L50 80 M30 50 L70 50" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M50 35 L40 45 L50 55 L60 45 Z" fill="#8B0000" stroke="#FFD700" stroke-width="1.5"/>
+                </svg>
+            </div>
+            <h2 class="loading-title">Jin's Legacy</h2>
+            <p class="loading-quote">"The way of the warrior is found in death..."</p>
+            <div class="loading-bar-container">
+                <div id="loading-bar" class="loading-bar"></div>
+            </div>
+            <p class="loading-percentage">0%</p>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav id="main-nav" class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">侍 Uday</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section home-section active">
+            <div class="ink-particles"></div>
+            <div class="wind-effect"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Legends of</span>
+                        <span class="title-line accent">Interactive Design</span>
+                    </h1>
+                    <p class="hero-subtitle">Game Designer &amp; Level Architect</p>
+                    <p class="hero-description">Crafting immersive worlds and unforgettable gameplay experiences</p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary" data-navigate="about">Begin Journey</button>
+                        <button class="btn btn-secondary" id="start-game-btn">Face Challenge</button>
+                    </div>
+                </div>
+                
+                <!-- Mini Game -->
+                <div id="game-container" class="game-container hidden">
+                    <div class="game-header">
+                        <h3>Mushin Slash Challenge</h3>
+                        <button class="game-close" id="close-game-btn">&times;</button>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-stat">
+                            <span class="stat-label">Score:</span>
+                            <span id="game-score" class="stat-value">0</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="stat-label">Time:</span>
+                            <span id="game-time" class="stat-value">30</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="stat-label">Combo:</span>
+                            <span id="game-combo" class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <canvas id="game-canvas" width="800" height="500"></canvas>
+                    <div id="game-tutorial" class="game-tutorial">
+                        <h4>How to Play</h4>
+                        <p>Click on enemies as they appear to slash them with your blade!</p>
+                        <p>Build combos for bonus points. Don't let them escape!</p>
+                        <button id="start-tutorial-btn" class="btn btn-primary">Start</button>
+                    </div>
+                    <div id="game-over" class="game-over hidden">
+                        <h3>Challenge Complete</h3>
+                        <p class="final-score">Final Score: <span id="final-score">0</span></p>
+                        <p id="rank-message" class="rank-message"></p>
+                        <div class="game-over-actions">
+                            <button id="replay-btn" class="btn btn-primary">Try Again</button>
+                            <button id="close-game-over-btn" class="btn btn-secondary">Close</button>
+                        </div>
+                        <div class="leaderboard">
+                            <h4>Top Scores</h4>
+                            <ol id="leaderboard-list"></ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-header">
+                <span class="section-subtitle">知る • Know</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="card-ornament"></div>
+                    <div class="about-intro">
+                        <h3>Uday Makawna</h3>
+                        <p class="about-title">Game Designer &amp; Level Designer</p>
+                        <p class="about-location">📍 Keshod, Gujarat, India</p>
+                        <p class="about-contact">📞 +91 93138 38248</p>
+                    </div>
+                    <div class="about-summary">
+                        <p>Aspiring Game Designer pursuing BTech CSE final year with specialization in Unreal Engine level design, gameplay mechanics, AI behavior, and player experience optimization. <strong>1.4+ years professional experience</strong> with <strong>13+ years gaming expertise</strong>.</p>
+                        <p>Currently crafting immersive gameplay experiences at <strong>Akiyam Solutions Pvt Ltd</strong>, where I design gameplay systems and detailed level layouts using Unreal Engine Blueprints.</p>
+                    </div>
+                    <div class="secret-message" id="secret-blessing">
+                        <p class="blessing-text">"May your code be bug-free and your frame rates high" - Ancient Developer Blessing 🗡️</p>
+                    </div>
+                </div>
+                
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <h4>#1 in Asia</h4>
+                        <p>Shadow Fight 3 multiplayer champion</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🎮</div>
+                        <h4>Top 52 Teams</h4>
+                        <p>Call of Duty Mobile National Tournament (2020)</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⚔️</div>
+                        <h4>10,000+ Players</h4>
+                        <p>Managed Minecraft server community</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">📊</div>
+                        <h4>13+ Years</h4>
+                        <p>Extensive gameplay expertise and analysis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="section experience-section">
+            <div class="section-header">
+                <span class="section-subtitle">旅 • Journey</span>
+                <h2 class="section-title">Experience</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">06/2025 - Present</span>
+                        <h3>Game Designer</h3>
+                        <h4>Akiyam Solutions Pvt Ltd</h4>
+                        <ul class="achievement-list">
+                            <li>Designed gameplay systems and detailed level layouts using Unreal Engine Blueprints</li>
+                            <li>Collaborated with artists, developers, and QA teams on game flow optimization</li>
+                            <li>Conducted playtests and incorporated feedback for measurable player retention improvements</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">01/2025 - 06/2025</span>
+                        <h3>Intern Game Designer</h3>
+                        <h4>Akiyam Solutions Pvt Ltd</h4>
+                        <ul class="achievement-list">
+                            <li>Supported level design and mission flow development</li>
+                            <li>Iterated on core mechanics to increase user satisfaction</li>
+                            <li>Documented game design proposals and UI workflows</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">05/2024 - 07/2024</span>
+                        <h3>Game Designer &amp; Level Designer Intern</h3>
+                        <h4>Arkham Archives</h4>
+                        <ul class="achievement-list">
+                            <li>Developed educational game modules with gamification</li>
+                            <li>Community management and eSports tournament coordination</li>
+                            <li>Fostered user base growth and platform popularity</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Completed 2023</span>
+                        <h3>Diploma in Computer Engineering</h3>
+                        <h4>Om Institute of Engineering &amp; Technology, Junagadh</h4>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Pursuing Final Year</span>
+                        <h3>BTech in Computer Science Engineering</h3>
+                        <h4>Charusat University, Nadiad, Gujarat</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="section-header">
+                <span class="section-subtitle">力 • Power</span>
+                <h2 class="section-title">Skills &amp; Expertise</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="skills-content">
+                <div class="skill-category">
+                    <h3 class="category-title">Game Engines</h3>
+                    <div class="skill-tree">
+                        <div class="skill-node">
+                            <div class="node-icon">🎮</div>
+                            <span class="node-label">Unreal Engine</span>
+                            <div class="node-sublabels">
+                                <span>Blueprints</span>
+                                <span>Level Design</span>
+                            </div>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🔷</div>
+                            <span class="node-label">Unity</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🤖</div>
+                            <span class="node-label">Godot</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="category-title">Game Design</h3>
+                    <div class="skill-tree">
+                        <div class="skill-node">
+                            <div class="node-icon">🏗️</div>
+                            <span class="node-label">Level Design</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">⚙️</div>
+                            <span class="node-label">Gameplay Scripting</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🧠</div>
+                            <span class="node-label">AI Behavior Design</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">👤</div>
+                            <span class="node-label">Player Experience</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🔍</div>
+                            <span class="node-label">Game Testing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="category-title">Technical Tools</h3>
+                    <div class="skill-tree">
+                        <div class="skill-node">
+                            <div class="node-icon">💻</div>
+                            <span class="node-label">VS Code</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🔀</div>
+                            <span class="node-label">Git</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🎨</div>
+                            <span class="node-label">Blender</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🖼️</div>
+                            <span class="node-label">Midjourney</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🏛️</div>
+                            <span class="node-label">Twinmotion</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🎭</div>
+                            <span class="node-label">Quixel Bridge</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="category-title">Soft Skills</h3>
+                    <div class="skill-tree">
+                        <div class="skill-node">
+                            <div class="node-icon">💡</div>
+                            <span class="node-label">Creative Problem-Solving</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">📊</div>
+                            <span class="node-label">Analytical Thinking</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🎯</div>
+                            <span class="node-label">Player-Centered Design</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">💬</div>
+                            <span class="node-label">Effective Communication</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">🤝</div>
+                            <span class="node-label">Cross-Functional Collaboration</span>
+                        </div>
+                        <div class="skill-node">
+                            <div class="node-icon">📚</div>
+                            <span class="node-label">Continuous Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="section-header">
+                <span class="section-subtitle">作 • Create</span>
+                <h2 class="section-title">Projects &amp; Portfolio</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Akiyam Solutions - Current Project</h3>
+                        <span class="project-tag">Unreal Engine</span>
+                    </div>
+                    <p class="project-description">Designing comprehensive gameplay systems and detailed level layouts using Unreal Engine Blueprints. Collaborating across teams to optimize game flow and player experience.</p>
+                    <div class="project-tech">
+                        <span>Level Design</span>
+                        <span>Blueprint Scripting</span>
+                        <span>Playtesting</span>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Educational Game Modules</h3>
+                        <span class="project-tag">Arkham Archives</span>
+                    </div>
+                    <p class="project-description">Developed gamification systems for educational content, creating engaging interactive experiences that enhance learning retention and user engagement.</p>
+                    <div class="project-tech">
+                        <span>Gamification</span>
+                        <span>Educational Design</span>
+                        <span>Community Management</span>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Minecraft Server Management</h3>
+                        <span class="project-tag">Community</span>
+                    </div>
+                    <p class="project-description">Successfully managed and grew a Minecraft server community to over 10,000 active players, implementing custom gameplay mechanics and community events.</p>
+                    <div class="project-tech">
+                        <span>Server Management</span>
+                        <span>Community Building</span>
+                        <span>Custom Mechanics</span>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Competitive Gaming Analysis</h3>
+                        <span class="project-tag">eSports</span>
+                    </div>
+                    <p class="project-description">13+ years of deep gameplay analysis across multiple titles, achieving #1 ranking in Shadow Fight 3 Asia and Top 52 in Call of Duty Mobile national tournament.</p>
+                    <div class="project-tech">
+                        <span>Game Mechanics</span>
+                        <span>Strategy Analysis</span>
+                        <span>Competitive Play</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-header">
+                <span class="section-subtitle">繋 • Connect</span>
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Create Something Legendary</h3>
+                    <p>Whether you're looking for a game designer, level architect, or someone passionate about creating immersive experiences, I'd love to hear from you.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>Email</strong>
+                                <p>Available upon request</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+91 93138 38248</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>Location</strong>
+                                <p>Keshod, Gujarat, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+                    <p id="form-status" class="form-status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Uday Makawna. Crafted with honor and dedication.</p>
+            <p class="footer-quote">"The ghost protects the island" - Ghost of Tsushima</p>
+        </div>
+    </footer>
+    
+    <!-- Easter Egg Overlay -->
+    <div id="legendary-overlay" class="legendary-overlay hidden"></div>
+    
+    <!-- Scripts -->
+    <script src="loader.js"></script>
+    <script src="cursor.js"></script>
+    <script src="game.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
