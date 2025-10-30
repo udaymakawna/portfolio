@@ -492,34 +492,37 @@
                 </div>
 
                 <form action="https://formspree.io/f/mblpkpnq" method="POST" class="contact-form" id="contact-form">
-                    <!-- Hidden field for custom subject line -->
-                    <input type="hidden" name="_subject" value="New Portfolio Contact from Website!" />
+  <!-- Optional: custom email subject -->
+  <input type="hidden" name="_subject" value="New Portfolio Contact from Website!" />
 
-                    <!-- Hidden field to customize the reply-to address -->
-                    <input type="hidden" name="_replyto" value="" />
+  <!-- Optional: custom redirect after submit (use your actual Pages URL or remove this line) -->
+  <input type="hidden" name="_next" value="https://YOUR_GH_PAGES_URL#contact" />
 
-                    <!-- Redirect after submission (optional - you can change this to your success page) -->
-                    <input type="hidden" name="_next" value="https://yourusername.github.io/yourrepo#contact" />
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+  </div>
 
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
-                    <p id="form-status" class="form-status"></p>
-                </form>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <!-- IMPORTANT: name must be _replyto for proper reply behavior -->
+    <input type="email" id="email" name="_replyto" placeholder="your.email@example.com" required>
+  </div>
+
+  <div class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+  <p id="form-status" class="form-status" aria-live="polite"></p>
+</form>
+
             </div>
         </section>
     </main>
