@@ -4,30 +4,30 @@
 
 (function() {
   'use strict';
-  
+
   // Navigation
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.section');
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const navMenu = document.getElementById('nav-menu');
   const mainNav = document.getElementById('main-nav');
-  
+
   // Section navigation
   function navigateToSection(sectionId) {
     // Hide all sections
     sections.forEach(section => {
       section.classList.remove('active');
     });
-    
+
     // Show target section
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
       targetSection.classList.add('active');
-      
+
       // Smooth scroll to top of section
       targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    
+
     // Update active nav link
     navLinks.forEach(link => {
       link.classList.remove('active');
@@ -35,13 +35,13 @@
         link.classList.add('active');
       }
     });
-    
+
     // Close mobile menu
     if (navMenu) {
       navMenu.classList.remove('active');
     }
   }
-  
+
   // Nav link click handlers
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -50,14 +50,14 @@
       navigateToSection(sectionId);
     });
   });
-  
+
   // Mobile menu toggle
   if (mobileMenuToggle && navMenu) {
     mobileMenuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
   }
-  
+
   // Hero CTA button navigation
   const ctaButtons = document.querySelectorAll('[data-navigate]');
   ctaButtons.forEach(button => {
@@ -66,29 +66,29 @@
       navigateToSection(targetSection);
     });
   });
-  
+
   // Scroll effects
   let lastScroll = 0;
-  
+
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     // Add shadow to nav on scroll
     if (currentScroll > 100) {
       mainNav.classList.add('scrolled');
     } else {
       mainNav.classList.remove('scrolled');
     }
-    
+
     lastScroll = currentScroll;
   });
-  
+
   // Intersection Observer for section animations
   const observerOptions = {
     threshold: 0.2,
     rootMargin: '0px 0px -100px 0px'
   };
-  
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -97,63 +97,103 @@
       }
     });
   }, observerOptions);
-  
+
   // Observe all sections except home (already active)
   sections.forEach((section, index) => {
     if (index > 0) { // Skip home section
       sectionObserver.observe(section);
     }
   });
-  
-  // Contact form handling
+
+  // ========================================
+  // FORMSPREE CONTACT FORM HANDLING
+  // ========================================
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
-  
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
-      // Get form data
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-      };
-      
-      // Simulate form submission (replace with actual API call)
-      formStatus.textContent = 'Sending message...';
-      formStatus.className = 'form-status';
-      formStatus.style.display = 'block';
-      
-      setTimeout(() => {
-        formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-        formStatus.className = 'form-status success';
-        contactForm.reset();
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          formStatus.style.display = 'none';
-        }, 5000);
-      }, 1500);
+
+      // Show loading state
+      if (formStatus) {
+        formStatus.textContent = 'Sending message...';
+        formStatus.className = 'form-status loading';
+        formStatus.style.display = 'block';
+      }
+
+      try {
+        // Get form data
+        const formData = new FormData(contactForm);
+
+        // Send to Formspree
+        const response = await fetch(contactForm.action, {
+          method: contactForm.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Success!
+          if (formStatus) {
+            formStatus.textContent = '✓ Message sent successfully! I will get back to you soon.';
+            formStatus.className = 'form-status success';
+          }
+
+          // Reset form
+          contactForm.reset();
+
+          // Show success notification
+          showNotification('Message Sent!', 'Thank you for reaching out. I\'ll respond as soon as possible.');
+
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            if (formStatus) {
+              formStatus.style.display = 'none';
+            }
+          }, 5000);
+        } else {
+          // Handle errors
+          const errorData = await response.json();
+          let errorMessage = 'Oops! There was a problem submitting your form.';
+
+          if (errorData && errorData.errors) {
+            errorMessage = errorData.errors.map(err => err.message).join(', ');
+          }
+
+          if (formStatus) {
+            formStatus.textContent = errorMessage;
+            formStatus.className = 'form-status error';
+          }
+        }
+      } catch (error) {
+        // Network error
+        console.error('Form submission error:', error);
+        if (formStatus) {
+          formStatus.textContent = 'Network error. Please check your connection and try again.';
+          formStatus.className = 'form-status error';
+        }
+      }
     });
   }
-  
+
   // Easter Egg - Legendary Mode
   let keySequence = [];
   const secretCode = ['j', 'i', 'n'];
   const legendaryOverlay = document.getElementById('legendary-overlay');
   let isLegendaryMode = false;
-  
+
   document.addEventListener('keydown', (e) => {
     const key = e.key.toLowerCase();
     keySequence.push(key);
-    
+
     // Keep only last 3 keys
     if (keySequence.length > 3) {
       keySequence.shift();
     }
-    
+
     // Check if secret code matches
     if (keySequence.join('') === secretCode.join('') && !isLegendaryMode) {
       activateLegendaryMode();
@@ -161,22 +201,22 @@
       deactivateLegendaryMode();
     }
   });
-  
+
   function activateLegendaryMode() {
     isLegendaryMode = true;
     document.body.classList.add('legendary-mode');
     legendaryOverlay.classList.remove('hidden');
-    
+
     // Show notification
     showNotification('🏆 LEGENDARY MODE ACTIVATED 🏆', 'You have unlocked the Ghost\'s true power!');
   }
-  
+
   function deactivateLegendaryMode() {
     isLegendaryMode = false;
     document.body.classList.remove('legendary-mode');
     legendaryOverlay.classList.add('hidden');
   }
-  
+
   function showNotification(title, message) {
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -194,14 +234,14 @@
       box-shadow: 0 10px 50px rgba(255, 215, 0, 0.4);
       animation: fadeInUp 0.5s ease;
     `;
-    
+
     notification.innerHTML = `
       <h3 style="font-family: 'Crimson Text', serif; color: #FFD700; margin-bottom: 1rem; font-size: 1.8rem;">${title}</h3>
       <p style="color: #F5F1DE; margin: 0;">${message}</p>
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
       notification.style.opacity = '0';
       notification.style.transform = 'translateX(-50%) translateY(-20px)';
@@ -210,7 +250,7 @@
       }, 500);
     }, 3000);
   }
-  
+
   // Parallax effect on hero section
   const heroSection = document.getElementById('home');
   if (heroSection) {
@@ -223,7 +263,7 @@
       }
     });
   }
-  
+
   // Skill nodes interaction
   const skillNodes = document.querySelectorAll('.skill-node');
   skillNodes.forEach(node => {
@@ -235,7 +275,7 @@
       }, 500);
     });
   });
-  
+
   // Project cards hover effect enhancement
   const projectCards = document.querySelectorAll('.project-card');
   projectCards.forEach(card => {
@@ -247,27 +287,27 @@
         }
       });
     });
-    
+
     card.addEventListener('mouseleave', () => {
       projectCards.forEach(otherCard => {
         otherCard.style.opacity = '1';
       });
     });
   });
-  
+
   // Achievement cards stagger animation
   const achievementCards = document.querySelectorAll('.achievement-card');
   achievementCards.forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
-    
+
     setTimeout(() => {
       card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       card.style.opacity = '1';
       card.style.transform = 'translateY(0)';
     }, index * 100);
   });
-  
+
   // Initialize page
   function init() {
     // Ensure home section is active on load
@@ -275,28 +315,28 @@
     if (homeSection) {
       homeSection.classList.add('active');
     }
-    
+
     // Add hover effects to buttons
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
       button.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-2px)';
       });
-      
+
       button.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0)';
       });
     });
-    
+
     console.log('%c🎮 Welcome to Uday Makawna\'s Portfolio', 'font-size: 20px; color: #FFD700; font-weight: bold;');
     console.log('%cType "Jin" to unlock Legendary Mode 🏆', 'font-size: 14px; color: #8B0000;');
   }
-  
+
   // Wait for DOM to be ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-  
+
 })();
