@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="Uday Makawna - Game Designer Portfolio. Specializing in Unreal Engine level design, gameplay mechanics, and AI behavior design with Japanese aesthetics. Based in Gujarat, India.">
+  <meta name="keywords" content="game designer portfolio, level design, Unreal Engine, game development, Uday Makawna, game designer India, UI/UX design, game optimization, Tsushima inspired">
+  <meta name="author" content="Uday Makawna">
+  <meta property="og:title" content="Uday Makawna - Game Designer Portfolio">
+  <meta property="og:description" content="Interactive portfolio showcasing game design, level design, and Unreal Engine projects with Ghost of Tsushima aesthetics.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://udaymakawna.com">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Enhanced Styles -->
+  <link rel="stylesheet" href="enhanced-style.css">
+  
+  <title>Uday Makawna - Game Designer | Unreal Engine | Level Design | Portfolio</title>
+</head>
+
+<body>
+  <!-- Weather Canvas (Ghost of Tsushima inspired particles) -->
+  <canvas id="weatherCanvas" aria-label="Ambient weather particles"></canvas>
+
+  <!-- Main Navigation Bar -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="logo-section">
+        <span class="logo-icon">🎌</span>
+        <span class="nav-logo">Uday Makawna</span>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <div class="nav-links">
+        <button class="nav-link active" data-section="home">Home</button>
+        <button class="nav-link" data-section="experience">Experience</button>
+        <button class="nav-link" data-section="projects">Projects</button>
+        <button class="nav-link" data-section="skills">Skills</button>
+        <button class="nav-link" data-section="contact">Contact</button>
+      </div>
+
+      <!-- Controls -->
+      <div class="nav-controls">
+        <button id="langToggle" class="control-btn" aria-label="Toggle language">EN</button>
+        <button id="themeToggle" class="control-btn" aria-label="Toggle theme">🌙</button>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu hidden">
+    <button class="nav-link" data-section="home">Home</button>
+    <button class="nav-link" data-section="experience">Experience</button>
+    <button class="nav-link" data-section="projects">Projects</button>
+    <button class="nav-link" data-section="skills">Skills</button>
+    <button class="nav-link" data-section="contact">Contact</button>
+  </div>
+
+  <main class="main-content">
+
+    <!-- HOME SECTION -->
+    <section id="home" class="section-content active" role="region" aria-label="Home">
+      <div class="section-wrapper">
+        <div class="hero-container">
+          <div class="hero-icon">🎮</div>
+          <h1 class="hero-title">Uday Makawna</h1>
+          <p class="hero-subtitle">Game Designer & Level Designer</p>
+          <p class="hero-description">
+            BTech CSE final year student specializing in <span class="highlight">Unreal Engine</span> level design, gameplay mechanics, and AI behavior design. Passionate about crafting immersive, balanced gameplay experiences with <span class="highlight-sakura">Japanese aesthetic influences</span>.
+          </p>
+          <p class="hero-awards">
+            <span class="award">🏆 Ranked #1 in Asia</span> - Shadow Fight 3 | <span class="award">13+ years gaming</span> experience
+          </p>
+
+          <!-- Bento Grid Navigation -->
+          <div class="bento-grid">
+            <button class="bento-card" data-section="experience" role="button" aria-label="View Experience">
+              <div class="bento-icon">💼</div>
+              <div class="bento-label">Experience</div>
+            </button>
+            <button class="bento-card" data-section="projects" role="button" aria-label="View Projects">
+              <div class="bento-icon">🎯</div>
+              <div class="bento-label">Projects</div>
+            </button>
+            <button class="bento-card" data-section="skills" role="button" aria-label="View Skills">
+              <div class="bento-icon">⚙️</div>
+              <div class="bento-label">Skills</div>
+            </button>
+            <button class="bento-card" data-section="contact" role="button" aria-label="Contact Me">
+              <div class="bento-icon">📧</div>
+              <div class="bento-label">Contact</div>
+            </button>
+          </div>
+
+          <!-- Weather Controls -->
+          <div class="weather-controls">
+            <button onclick="setWeather('clear')" class="weather-btn">🌤️ Clear</button>
+            <button onclick="setWeather('sakura')" class="weather-btn">🌸 Sakura</button>
+            <button onclick="setWeather('rain')" class="weather-btn">🌧️ Rain</button>
+            <button onclick="setWeather('fog')" class="weather-btn">🌫️ Fog</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section-content hidden" role="region" aria-label="Experience">
+      <div class="section-wrapper">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+          <!-- Timeline items generated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section-content hidden" role="region" aria-label="Projects">
+      <div class="section-wrapper">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A collection of game design, level design, and technical projects showcasing creative and technical expertise.</p>
+        <div class="grid">
+          <!-- Project cards generated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section-content hidden" role="region" aria-label="Skills">
+      <div class="section-wrapper">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+          <!-- Skills categories generated by JavaScript -->
+        </div>
+
+        <!-- Awards & Recognition -->
+        <div class="awards-section">
+          <h3 class="section-subtitle">Awards & Recognition</h3>
+          <div class="awards-container">
+            <div class="glass-card">
+              <div class="award-item">
+                <div class="award-icon">🥇</div>
+                <div class="award-content">
+                  <h4>Ranked #1 in Asia</h4>
+                  <p>Shadow Fight 3 - Multiplayer Champion</p>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card">
+              <div class="award-item">
+                <div class="award-icon">🏆</div>
+                <div class="award-content">
+                  <h4>Top 52 Teams Nationally</h4>
+                  <p>Call of Duty Mobile Tournament (2020)</p>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card">
+              <div class="award-item">
+                <div class="award-icon">🎮</div>
+                <div class="award-content">
+                  <h4>13+ Years Gaming</h4>
+                  <p>Extensive gameplay expertise and mechanics analysis</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-content hidden" role="region" aria-label="Contact">
+      <div class="section-wrapper">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="glass-card contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-items">
+              <a href="mailto:udaymakawna@gmail.com" class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-details">
+                  <div class="contact-label">Email</div>
+                  <div class="contact-value">udaymakawna@gmail.com</div>
+                </div>
+              </a>
+              <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div class="contact-details">
+                  <div class="contact-label">Phone</div>
+                  <div class="contact-value">+91 93138 38248</div>
+                </div>
+              </div>
+              <a href="https://linkedin.com/in/udaymakawna" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon">💼</div>
+                <div class="contact-details">
+                  <div class="contact-label">LinkedIn</div>
+                  <div class="contact-value">linkedin.com/in/udaymakawna</div>
+                </div>
+              </a>
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-details">
+                  <div class="contact-label">Location</div>
+                  <div class="contact-value">Anand, Gujarat, India</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="glass-card contact-form">
+            <h3>Send a Message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required rows="4" placeholder="Tell me about your project..."></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PROJECT MODAL -->
+  <div id="projectModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close" aria-label="Close modal">✕</button>
+      <div id="modalContent">
+        <!-- Content inserted by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" class="scroll-top hidden" aria-label="Scroll to top">↑</button>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Enhanced App Script -->
+  <script src="enhanced-app.js" defer></script>
+
+</body>
+</html>
