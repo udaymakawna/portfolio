@@ -803,9 +803,6 @@ function initGallery() {
         goToImage(0);
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
-
-        // Start 3D background with theme
-        initLightbox3D(theme);
     }
 
     // Determine theme based on project title
