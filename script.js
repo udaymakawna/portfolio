@@ -804,11 +804,36 @@ function initGallery() {
     function closeGallery() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        // Reset zoom when closing
+        const imageContainer = document.querySelector('.lightbox-image-container');
+        if (imageContainer) {
+            imageContainer.classList.remove('zoomed');
+        }
+    }
+
+    // Image zoom toggle - click to zoom in/out
+    const imageContainer = document.querySelector('.lightbox-image-container');
+    if (imageContainer) {
+        imageContainer.addEventListener('click', (e) => {
+            e.stopPropagation();
+            imageContainer.classList.toggle('zoomed');
+        });
+    }
+
+    // Reset zoom when changing images
+    function resetZoom() {
+        const container = document.querySelector('.lightbox-image-container');
+        if (container) {
+            container.classList.remove('zoomed');
+        }
     }
 
     function goToImage(index) {
         if (index < 0) index = currentImages.length - 1;
         if (index >= currentImages.length) index = 0;
+
+        // Reset zoom when changing images
+        resetZoom();
 
         currentIndex = index;
         lightboxImage.src = currentImages[index];

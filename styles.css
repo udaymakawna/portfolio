@@ -860,6 +860,8 @@ section {
     overflow: hidden;
     border-radius: var(--radius-lg);
     background: var(--bg-card);
+    cursor: zoom-in;
+    transition: all 0.3s ease;
 }
 
 .lightbox-image-container img {
@@ -867,6 +869,32 @@ section {
     max-height: 60vh;
     object-fit: contain;
     border-radius: var(--radius-lg);
+    transition: transform 0.3s ease;
+}
+
+/* Zoomed state */
+.lightbox-image-container.zoomed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 100vh;
+    z-index: 10001;
+    background: rgba(0, 0, 0, 0.98);
+    border-radius: 0;
+    cursor: zoom-out;
+    overflow: auto;
+}
+
+.lightbox-image-container.zoomed img {
+    max-width: none;
+    max-height: none;
+    width: auto;
+    height: auto;
+    max-width: 200%;
+    transform: scale(1);
+    border-radius: 0;
 }
 
 .lightbox-nav {
