@@ -916,37 +916,28 @@ function initImageLoading() {
 }
 
 function preloadGalleryImages() {
-    const projectCards = document.querySelectorAll('.project-card[data-gallery]');
+    // Wait for page to be fully loaded, then preload gallery images
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const projectCards = document.querySelectorAll('.project-card[data-gallery]');
 
-    // Use Intersection Observer to preload when card is visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const card = entry.target;
+            projectCards.forEach(card => {
                 const galleryData = card.dataset.gallery;
-
                 if (galleryData) {
                     try {
                         const images = JSON.parse(galleryData);
-                        // Preload first 3 images of each gallery
-                        images.slice(0, 3).forEach(src => {
-                            const link = document.createElement('link');
-                            link.rel = 'prefetch';
-                            link.as = 'image';
-                            link.href = src;
-                            document.head.appendChild(link);
+                        // Preload all gallery images in parallel
+                        images.forEach(src => {
+                            const img = new Image();
+                            img.src = src;
                         });
                     } catch (e) {
-                        console.log('Error preloading gallery:', e);
+                        console.log('Error preloading:', e);
                     }
                 }
-
-                observer.unobserve(card);
-            }
-        });
-    }, { rootMargin: '200px' });
-
-    projectCards.forEach(card => observer.observe(card));
+            });
+        }, 1000); // Wait 1 second after load to not block initial rendering
+    });
 }
 
 // ================================
