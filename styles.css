@@ -902,9 +902,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -926,8 +924,6 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    z-index: 1;
 }
 
 .lightbox-close {
