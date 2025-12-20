@@ -8,12 +8,15 @@
     --bg-card: #161616;
     --bg-hover: #1a1a1a;
 
-    /* Accent */
+    /* Accent - Enhanced with gradients */
     --accent: #ffffff;
     --accent-dim: rgba(255, 255, 255, 0.7);
     --accent-muted: rgba(255, 255, 255, 0.4);
     --highlight: #6366f1;
+    --highlight-secondary: #8b5cf6;
     --highlight-glow: rgba(99, 102, 241, 0.3);
+    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    --gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
 
     /* Text */
     --text-primary: #ffffff;
@@ -23,6 +26,7 @@
     /* Borders */
     --border: rgba(255, 255, 255, 0.08);
     --border-hover: rgba(255, 255, 255, 0.15);
+    --border-glow: rgba(99, 102, 241, 0.4);
 
     /* Typography */
     --font-heading: 'Space Grotesk', sans-serif;
@@ -43,6 +47,7 @@
 
     /* Transitions */
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* ================================
@@ -195,9 +200,14 @@ section {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     color: var(--highlight);
     margin-bottom: var(--space-sm);
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--gradient-subtle);
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .section-title {
@@ -210,7 +220,23 @@ section {
 }
 
 .section-title .highlight {
-    color: var(--highlight);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.section-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    opacity: 0.6;
 }
 
 .section-desc {
@@ -538,13 +564,15 @@ section {
 }
 
 .project-card {
-    background: linear-gradient(145deg, rgba(30, 30, 35, 0.9), rgba(20, 20, 25, 0.95));
-    border: 1px solid rgba(99, 102, 241, 0.15);
+    background: linear-gradient(145deg, rgba(30, 30, 35, 0.95), rgba(20, 20, 25, 0.98));
+    border: 1px solid rgba(99, 102, 241, 0.12);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: var(--transition-bounce);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     position: relative;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
 }
 
 .project-card::before {
@@ -554,7 +582,7 @@ section {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--highlight), #8b5cf6, var(--highlight));
+    background: var(--gradient-primary);
     background-size: 200% 100%;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -563,6 +591,15 @@ section {
 .project-card:hover::before {
     opacity: 1;
     animation: shimmer 2s infinite;
+}
+
+.project-card:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-12px) scale(1.01);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(99, 102, 241, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 @keyframes shimmer {
