@@ -812,13 +812,13 @@ function initGallery() {
     }
 
     // Image zoom toggle - click to zoom in/out
-    const imageContainer = document.querySelector('.lightbox-image-container');
-    if (imageContainer) {
-        imageContainer.addEventListener('click', (e) => {
-            e.stopPropagation();
-            imageContainer.classList.toggle('zoomed');
-        });
-    }
+    lightboxImage.style.cursor = 'zoom-in';
+    lightboxImage.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const container = lightboxImage.parentElement;
+        const isZoomed = container.classList.toggle('zoomed');
+        lightboxImage.style.cursor = isZoomed ? 'zoom-out' : 'zoom-in';
+    });
 
     // Reset zoom when changing images
     function resetZoom() {
@@ -826,6 +826,7 @@ function initGallery() {
         if (container) {
             container.classList.remove('zoomed');
         }
+        lightboxImage.style.cursor = 'zoom-in';
     }
 
     function goToImage(index) {
