@@ -484,8 +484,10 @@ section {
     align-items: center;
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-sm);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(22, 22, 22, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-lg);
     font-size: 0.85rem;
     color: var(--text-secondary);
@@ -525,8 +527,10 @@ section {
 
 .exp-card {
     padding: var(--space-lg);
-    background: linear-gradient(145deg, rgba(25, 25, 30, 0.95), rgba(18, 18, 22, 0.98));
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    background: rgba(22, 22, 28, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-xl);
     transition: var(--transition-bounce);
     position: relative;
@@ -639,15 +643,16 @@ section {
 }
 
 .project-card {
-    background: linear-gradient(145deg, rgba(30, 30, 35, 0.95), rgba(20, 20, 25, 0.98));
-    border: 1px solid rgba(99, 102, 241, 0.12);
+    background: rgba(25, 25, 30, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-xl);
     overflow: hidden;
     transition: var(--transition-bounce);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     position: relative;
     cursor: pointer;
-    backdrop-filter: blur(10px);
 }
 
 .project-card::before {
