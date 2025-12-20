@@ -530,9 +530,11 @@ section {
 ================================ */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
     padding: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -579,16 +581,21 @@ section {
     box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15), 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* Remove large spanning - all cards same size for consistent grid */
 .project-card.large {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 .project-image {
-    height: 200px;
+    height: 280px;
     background: linear-gradient(135deg, #1a1a2e, #16213e);
     position: relative;
     overflow: hidden;
+}
+
+.project-card.large .project-image {
+    height: 280px;
 }
 
 /* Skeleton loader animation for images */
@@ -1536,6 +1543,13 @@ section {
 
     .project-card.large .project-image {
         height: 280px;
+    }
+}
+
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
     }
 }
 
