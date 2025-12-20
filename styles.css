@@ -656,30 +656,12 @@ section {
     cursor: pointer;
 }
 
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-primary);
-    background-size: 200% 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-.project-card:hover::before {
-    opacity: 1;
-    animation: shimmer 2s infinite;
-}
 
 .project-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.4),
-        0 0 80px rgba(99, 102, 241, 0.5);
+        0 0 60px rgba(99, 102, 241, 0.5);
 }
 
 @keyframes shimmer {
