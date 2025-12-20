@@ -196,22 +196,39 @@
             <div class="section-label">Projects</div>
             <h2 class="section-title">Selected <span class="highlight">work</span></h2>
             <div class="projects-grid">
-                <article class="project-card large">
+                <!-- Project 1: Base Builder -->
+                <article class="project-card large"
+                    data-gallery='["images/base builder/basebuilder-1.png", "images/base builder/basebuilder-2.png", "images/base builder/basebuilder-3.png", "images/base builder/basebuilder-4.png", "images/base builder/basebuilder-5.png", "images/base builder/basebuilder-6.png", "images/base builder/basebuilder-7.png", "images/base builder/basebuilder-8.png", "images/base builder/basebuilder-9.png", "images/base builder/basebuilder-10.png", "images/base builder/basebuilder-11.png", "images/base builder/basebuilder-12.png", "images/base builder/basebuilder-13.png", "images/base builder/basebuilder-14.png", "images/base builder/basebuilder-15.png", "images/base builder/basebuilder-16.png", "images/base builder/basebuilder-17.png", "images/base builder/basebuilder-18.png", "images/base builder/basebuilder-19.png", "images/base builder/basebuilder-20.png", "images/base builder/basebuilder-21.png", "images/base builder/basebuilder-22.png", "images/base builder/basebuilder-23.png", "images/base builder/basebuilder-24.png", "images/base builder/basebuilder-25.png"]'
+                    data-title="Base Builder">
                     <div class="project-image">
-                        <div class="project-3d" id="project-3d-1"></div>
+                        <img src="images/base builder/basebuilder-1.png" alt="Base Builder" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="gallery-btn"><i class="fas fa-images"></i> View Gallery (25)</button>
+                        </div>
                     </div>
                     <div class="project-content">
                         <span class="project-type">Level Design</span>
-                        <h3>Narrative-Driven 3D Levels</h3>
-                        <p>Multiple 3D game levels focused on narrative-driven gameplay using Unreal Engine.</p>
+                        <h3>Base Builder</h3>
+                        <p>An immersive base building game with strategic gameplay mechanics and detailed level design.
+                        </p>
                         <div class="project-tags">
                             <span>Unreal Engine</span>
-                            <span>Blueprints</span>
-                            <span>3D</span>
+                            <span>Level Design</span>
+                            <span>Strategy</span>
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
+
+                <!-- Project 2: AI Systems -->
+                <article class="project-card"
+                    data-gallery='["images/ai/ai-1.jpg", "images/ai/ai-2.jpg", "images/ai/ai-3.jpg"]'
+                    data-title="AI Behavior Systems">
+                    <div class="project-image">
+                        <img src="images/ai/ai-1.jpg" alt="AI Behavior Systems" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="gallery-btn"><i class="fas fa-images"></i> Gallery</button>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <span class="project-type">AI Design</span>
                         <h3>AI Behavior Systems</h3>
@@ -222,7 +239,17 @@
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
+
+                <!-- Project 3: Educational -->
+                <article class="project-card"
+                    data-gallery='["images/education/edu-1.jpg", "images/education/edu-2.jpg", "images/education/edu-3.jpg"]'
+                    data-title="Learning Game Modules">
+                    <div class="project-image">
+                        <img src="images/education/edu-1.jpg" alt="Learning Game Modules" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="gallery-btn"><i class="fas fa-images"></i> Gallery</button>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <span class="project-type">Educational</span>
                         <h3>Learning Game Modules</h3>
@@ -233,7 +260,17 @@
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
+
+                <!-- Project 4: Progression -->
+                <article class="project-card"
+                    data-gallery='["images/progression/prog-1.jpg", "images/progression/prog-2.jpg"]'
+                    data-title="Player Progression">
+                    <div class="project-image">
+                        <img src="images/progression/prog-1.jpg" alt="Player Progression" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="gallery-btn"><i class="fas fa-images"></i> Gallery</button>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <span class="project-type">Systems</span>
                         <h3>Player Progression</h3>
@@ -244,7 +281,17 @@
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
+
+                <!-- Project 5: Minecraft -->
+                <article class="project-card"
+                    data-gallery='["images/minecraft/mc-1.jpg", "images/minecraft/mc-2.jpg", "images/minecraft/mc-3.jpg"]'
+                    data-title="Minecraft Server">
+                    <div class="project-image">
+                        <img src="images/minecraft/mc-1.jpg" alt="Minecraft Server" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="gallery-btn"><i class="fas fa-images"></i> Gallery</button>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <span class="project-type">Community</span>
                         <h3>Minecraft Server</h3>
@@ -258,6 +305,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="lightbox-title" id="lightbox-title">Project Gallery</h3>
+            <div class="lightbox-gallery">
+                <button class="lightbox-nav prev" id="lightbox-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="lightbox-image-container">
+                    <img src="" alt="Gallery Image" id="lightbox-image">
+                </div>
+                <button class="lightbox-nav next" id="lightbox-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
+            <div class="lightbox-counter">
+                <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Interactive Playground Section -->
     <section class="playground" id="playground">
