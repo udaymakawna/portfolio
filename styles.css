@@ -461,7 +461,8 @@ section {
    About Section
 ================================ */
 .about {
-    background: var(--bg-secondary);
+    background: transparent;
+    position: relative;
 }
 
 .about-grid {
@@ -567,11 +568,11 @@ section {
 }
 
 .exp-card:hover {
-    border-color: var(--border-glow);
+    border: 1px solid rgba(99, 102, 241, 0.5);
     transform: translateY(-8px);
     box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(99, 102, 241, 0.1);
+        0 0 40px rgba(99, 102, 241, 0.25);
 }
 
 .exp-header {
@@ -1123,7 +1124,7 @@ section {
    Playground Section
 ================================ */
 .playground {
-    background: var(--bg-secondary);
+    background: transparent;
 }
 
 .playground-grid {
@@ -1133,10 +1134,22 @@ section {
 }
 
 .playground-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid transparent;
     border-radius: var(--radius-lg);
     overflow: hidden;
+    transition: var(--transition-bounce);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.playground-card:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(99, 102, 241, 0.2);
+    transform: translateY(-4px);
 }
 
 .playground-canvas {
