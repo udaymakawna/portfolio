@@ -803,6 +803,9 @@ function initGallery() {
         goToImage(0);
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Start 3D background with theme
+        initLightbox3D(theme);
     }
 
     // Determine theme based on project title
@@ -829,7 +832,146 @@ function initGallery() {
         if (imageContainer) {
             imageContainer.classList.remove('zoomed');
         }
+        // Stop 3D animation
+        if (lightbox3DAnimation) {
+            cancelAnimationFrame(lightbox3DAnimation);
+            lightbox3DAnimation = null;
+        }
     }
+
+    // Three.js 3D Background for Lightbox
+    let lightbox3DScene, lightbox3DCamera, lightbox3DRenderer, lightbox3DParticles;
+    let lightbox3DAnimation = null;
+
+    function initLightbox3D(theme) {
+        const canvas = document.getElementById('lightbox-3d-bg');
+        if (!canvas || !window.THREE) return;
+
+        // Clear previous scene
+        if (lightbox3DRenderer) {
+            lightbox3DRenderer.dispose();
+        }
+
+        // Create scene
+        lightbox3DScene = new THREE.Scene();
+
+        // Camera
+        lightbox3DCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        lightbox3DCamera.position.z = 50;
+
+        // Renderer
+        lightbox3DRenderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        lightbox3DRenderer.setSize(window.innerWidth, window.innerHeight);
+        lightbox3DRenderer.setClearColor(0x000000, 0);
+
+        // Theme-specific colors
+        const themeColors = {
+            horror: [0xff0000, 0x8b0000, 0x4a0000],
+            scifi: [0x00ffff, 0x0088ff, 0x00ff88],
+            city: [0xffaa00, 0xff8800, 0xffcc00],
+            weather: [0x4488ff, 0x6666ff, 0x88aaff],
+            game: [0x8855ff, 0x6633ff, 0xaa66ff]
+        };
+
+        const colors = themeColors[theme] || themeColors.game;
+
+        // Create particles
+        const particleCount = 150;
+        const particles = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const colorArray = new Float32Array(particleCount * 3);
+        const sizes = new Float32Array(particleCount);
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 150;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 100;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 50;
+
+            const color = new THREE.Color(colors[Math.floor(Math.random() * colors.length)]);
+            colorArray[i * 3] = color.r;
+            colorArray[i * 3 + 1] = color.g;
+            colorArray[i * 3 + 2] = color.b;
+
+            sizes[i] = Math.random() * 3 + 1;
+        }
+
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particles.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+        particles.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+        // Particle material with glow
+        const particleMaterial = new THREE.PointsMaterial({
+            size: 2,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        lightbox3DParticles = new THREE.Points(particles, particleMaterial);
+        lightbox3DScene.add(lightbox3DParticles);
+
+        // Add floating 3D shapes based on theme
+        const shapeGeometry = theme === 'horror' ? new THREE.TetrahedronGeometry(3) :
+            theme === 'scifi' ? new THREE.OctahedronGeometry(3) :
+                theme === 'city' ? new THREE.BoxGeometry(3, 3, 3) :
+                    new THREE.IcosahedronGeometry(2);
+
+        for (let i = 0; i < 8; i++) {
+            const shapeMaterial = new THREE.MeshBasicMaterial({
+                color: colors[i % colors.length],
+                wireframe: true,
+                transparent: true,
+                opacity: 0.4
+            });
+            const shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
+            shape.position.set(
+                (Math.random() - 0.5) * 100,
+                (Math.random() - 0.5) * 60,
+                (Math.random() - 0.5) * 30
+            );
+            shape.userData.rotationSpeed = {
+                x: (Math.random() - 0.5) * 0.02,
+                y: (Math.random() - 0.5) * 0.02
+            };
+            shape.userData.floatSpeed = Math.random() * 0.01 + 0.005;
+            shape.userData.floatOffset = Math.random() * Math.PI * 2;
+            lightbox3DScene.add(shape);
+        }
+
+        // Animation loop
+        function animate() {
+            lightbox3DAnimation = requestAnimationFrame(animate);
+
+            // Rotate particles
+            if (lightbox3DParticles) {
+                lightbox3DParticles.rotation.y += 0.001;
+                lightbox3DParticles.rotation.x += 0.0005;
+            }
+
+            // Animate shapes
+            lightbox3DScene.children.forEach(child => {
+                if (child.userData.rotationSpeed) {
+                    child.rotation.x += child.userData.rotationSpeed.x;
+                    child.rotation.y += child.userData.rotationSpeed.y;
+                    child.position.y += Math.sin(Date.now() * child.userData.floatSpeed + child.userData.floatOffset) * 0.05;
+                }
+            });
+
+            lightbox3DRenderer.render(lightbox3DScene, lightbox3DCamera);
+        }
+
+        animate();
+    }
+
+    // Handle window resize for lightbox 3D
+    window.addEventListener('resize', () => {
+        if (lightbox3DCamera && lightbox3DRenderer && lightbox.classList.contains('active')) {
+            lightbox3DCamera.aspect = window.innerWidth / window.innerHeight;
+            lightbox3DCamera.updateProjectionMatrix();
+            lightbox3DRenderer.setSize(window.innerWidth, window.innerHeight);
+        }
+    });
 
     // Image zoom toggle - click to zoom in/out
     lightboxImage.style.cursor = 'zoom-in';
