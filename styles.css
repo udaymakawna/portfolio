@@ -1297,6 +1297,24 @@ section {
     margin-bottom: var(--space-lg);
 }
 
+.skill-group {
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-bounce);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.skill-group:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(99, 102, 241, 0.15);
+}
+
 .skill-group h3 {
     font-family: var(--font-heading);
     font-size: 1rem;
@@ -1327,7 +1345,7 @@ section {
 .skill-bar {
     flex: 1;
     height: 6px;
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-lg);
     overflow: hidden;
 }
@@ -1349,17 +1367,20 @@ section {
 
 .soft-tag {
     padding: var(--space-xs) var(--space-sm);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid transparent;
     border-radius: var(--radius-lg);
     font-size: 0.85rem;
     color: var(--text-secondary);
-    transition: var(--transition);
+    transition: var(--transition-bounce);
 }
 
 .soft-tag:hover {
-    border-color: var(--highlight);
+    border-color: rgba(99, 102, 241, 0.5);
     color: var(--highlight);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
 }
 
 /* ================================
