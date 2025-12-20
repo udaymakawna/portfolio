@@ -864,77 +864,77 @@ function initGallery() {
         lightbox3DRenderer.setSize(window.innerWidth, window.innerHeight);
         lightbox3DRenderer.setClearColor(0x000000, 0);
 
-        // Theme-specific colors
+        // Theme-specific colors - muted and subtle
         const themeColors = {
-            horror: [0xff0000, 0x8b0000, 0x4a0000],
-            scifi: [0x00ffff, 0x0088ff, 0x00ff88],
-            city: [0xffaa00, 0xff8800, 0xffcc00],
-            weather: [0x4488ff, 0x6666ff, 0x88aaff],
-            game: [0x8855ff, 0x6633ff, 0xaa66ff]
+            horror: [0x330000, 0x220000, 0x1a0000],
+            scifi: [0x002233, 0x001a33, 0x003322],
+            city: [0x332200, 0x221100, 0x332211],
+            weather: [0x112244, 0x111133, 0x223344],
+            game: [0x221133, 0x1a1133, 0x331144]
         };
 
         const colors = themeColors[theme] || themeColors.game;
 
-        // Create particles
-        const particleCount = 150;
+        // Create particles - fewer and more spread out
+        const particleCount = 60;
         const particles = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const colorArray = new Float32Array(particleCount * 3);
         const sizes = new Float32Array(particleCount);
 
         for (let i = 0; i < particleCount; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 150;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 100;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 50;
+            positions[i * 3] = (Math.random() - 0.5) * 200;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 150;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 80;
 
             const color = new THREE.Color(colors[Math.floor(Math.random() * colors.length)]);
             colorArray[i * 3] = color.r;
             colorArray[i * 3 + 1] = color.g;
             colorArray[i * 3 + 2] = color.b;
 
-            sizes[i] = Math.random() * 3 + 1;
+            sizes[i] = Math.random() * 2 + 0.5;
         }
 
         particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         particles.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
         particles.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-        // Particle material with glow
+        // Particle material - very subtle
         const particleMaterial = new THREE.PointsMaterial({
-            size: 2,
+            size: 1.5,
             vertexColors: true,
             transparent: true,
-            opacity: 0.8,
+            opacity: 0.25,
             blending: THREE.AdditiveBlending
         });
 
         lightbox3DParticles = new THREE.Points(particles, particleMaterial);
         lightbox3DScene.add(lightbox3DParticles);
 
-        // Add floating 3D shapes based on theme
-        const shapeGeometry = theme === 'horror' ? new THREE.TetrahedronGeometry(3) :
-            theme === 'scifi' ? new THREE.OctahedronGeometry(3) :
-                theme === 'city' ? new THREE.BoxGeometry(3, 3, 3) :
-                    new THREE.IcosahedronGeometry(2);
+        // Add subtle floating 3D shapes based on theme - fewer and smaller
+        const shapeGeometry = theme === 'horror' ? new THREE.TetrahedronGeometry(1.5) :
+            theme === 'scifi' ? new THREE.OctahedronGeometry(1.5) :
+                theme === 'city' ? new THREE.BoxGeometry(1.5, 1.5, 1.5) :
+                    new THREE.IcosahedronGeometry(1);
 
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 5; i++) {
             const shapeMaterial = new THREE.MeshBasicMaterial({
                 color: colors[i % colors.length],
                 wireframe: true,
                 transparent: true,
-                opacity: 0.4
+                opacity: 0.15
             });
             const shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
             shape.position.set(
+                (Math.random() - 0.5) * 150,
                 (Math.random() - 0.5) * 100,
-                (Math.random() - 0.5) * 60,
-                (Math.random() - 0.5) * 30
+                (Math.random() - 0.5) * 50
             );
             shape.userData.rotationSpeed = {
-                x: (Math.random() - 0.5) * 0.02,
-                y: (Math.random() - 0.5) * 0.02
+                x: (Math.random() - 0.5) * 0.005,
+                y: (Math.random() - 0.5) * 0.005
             };
-            shape.userData.floatSpeed = Math.random() * 0.01 + 0.005;
+            shape.userData.floatSpeed = Math.random() * 0.003 + 0.001;
             shape.userData.floatOffset = Math.random() * Math.PI * 2;
             lightbox3DScene.add(shape);
         }

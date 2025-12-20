@@ -917,12 +917,12 @@ section {
     visibility: visible;
 }
 
-/* Themed side decorations - DVD style bouncing */
+/* Themed side decorations - subtle DVD style bouncing */
 .lightbox::before,
 .lightbox::after {
     position: fixed;
-    font-size: 5rem;
-    opacity: 0.4;
+    font-size: 3.5rem;
+    opacity: 0.12;
     pointer-events: none;
     z-index: 10001;
 }
