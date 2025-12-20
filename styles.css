@@ -551,21 +551,7 @@ section {
         0 0 40px rgba(99, 102, 241, 0.08);
 }
 
-.exp-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
 
-.exp-card:hover::before {
-    opacity: 1;
-}
 
 .exp-card:hover {
     border: 1px solid rgba(99, 102, 241, 0.5);
