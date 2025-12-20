@@ -740,7 +740,26 @@ function initGallery() {
     let currentImages = [];
     let currentIndex = 0;
 
-    // Open gallery when clicking gallery button
+    // Open gallery when clicking anywhere on project card
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (e) => {
+            const galleryData = card.dataset.gallery;
+            const title = card.dataset.title || 'Project Gallery';
+
+            if (galleryData) {
+                try {
+                    currentImages = JSON.parse(galleryData);
+                    currentIndex = 0;
+                    openGallery(title);
+                } catch (err) {
+                    console.error('Error parsing gallery data:', err);
+                }
+            }
+        });
+    });
+
+    // Also keep gallery button working
     document.querySelectorAll('.gallery-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
