@@ -917,6 +917,114 @@ section {
     visibility: visible;
 }
 
+/* Themed side decorations */
+.lightbox::before,
+.lightbox::after {
+    position: fixed;
+    font-size: 4rem;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 10001;
+    animation: floatDecor 6s ease-in-out infinite;
+}
+
+.lightbox::before {
+    content: '🎮';
+    left: 40px;
+    top: 30%;
+}
+
+.lightbox::after {
+    content: '🎮';
+    right: 40px;
+    bottom: 30%;
+    animation-delay: -3s;
+}
+
+/* Horror theme */
+.lightbox[data-theme="horror"]::before,
+.lightbox[data-theme="horror"]::after {
+    content: '💀';
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+}
+
+/* Sci-Fi theme */
+.lightbox[data-theme="scifi"]::before,
+.lightbox[data-theme="scifi"]::after {
+    content: '🚀';
+    text-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
+}
+
+/* City/Urban theme */
+.lightbox[data-theme="city"]::before,
+.lightbox[data-theme="city"]::after {
+    content: '🏙️';
+    text-shadow: 0 0 30px rgba(255, 200, 0, 0.5);
+}
+
+/* Fantasy/Game theme */
+.lightbox[data-theme="game"]::before,
+.lightbox[data-theme="game"]::after {
+    content: '⚔️';
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+/* Weather/Nature theme */
+.lightbox[data-theme="weather"]::before,
+.lightbox[data-theme="weather"]::after {
+    content: '⛈️';
+    text-shadow: 0 0 30px rgba(100, 150, 255, 0.5);
+}
+
+/* Add more themed icons on other corners */
+.lightbox[data-theme="horror"]::before {
+    content: '💀';
+    left: 40px;
+    top: 20%;
+}
+
+.lightbox[data-theme="horror"]::after {
+    content: '🦇';
+    right: 40px;
+    bottom: 20%;
+}
+
+.lightbox[data-theme="scifi"]::before {
+    content: '🛸';
+    left: 40px;
+    top: 20%;
+}
+
+.lightbox[data-theme="scifi"]::after {
+    content: '🌌';
+    right: 40px;
+    bottom: 20%;
+}
+
+.lightbox[data-theme="city"]::before {
+    content: '🌃';
+    left: 40px;
+    top: 20%;
+}
+
+.lightbox[data-theme="city"]::after {
+    content: '🚕';
+    right: 40px;
+    bottom: 20%;
+}
+
+@keyframes floatDecor {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
 .lightbox-content {
     max-width: 1000px;
     width: 95%;

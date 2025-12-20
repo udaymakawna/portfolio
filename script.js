@@ -783,6 +783,10 @@ function initGallery() {
     function openGallery(title) {
         if (currentImages.length === 0) return;
 
+        // Set theme based on project title
+        const theme = getProjectTheme(title);
+        lightbox.setAttribute('data-theme', theme);
+
         lightboxTitle.textContent = title;
         lightboxTotal.textContent = currentImages.length;
 
@@ -799,6 +803,22 @@ function initGallery() {
         goToImage(0);
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+    }
+
+    // Determine theme based on project title
+    function getProjectTheme(title) {
+        const lowerTitle = title.toLowerCase();
+        if (lowerTitle.includes('horror') || lowerTitle.includes('farm') || lowerTitle.includes('hospital')) {
+            return 'horror';
+        } else if (lowerTitle.includes('killzone') || lowerTitle.includes('sci-fi') || lowerTitle.includes('space')) {
+            return 'scifi';
+        } else if (lowerTitle.includes('nyc') || lowerTitle.includes('city')) {
+            return 'city';
+        } else if (lowerTitle.includes('lyra') || lowerTitle.includes('weather')) {
+            return 'weather';
+        } else {
+            return 'game';
+        }
     }
 
     function closeGallery() {
