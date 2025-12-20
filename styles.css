@@ -598,7 +598,7 @@ section {
     height: 320px;
 }
 
-/* Enhanced Skeleton loader animation for images */
+/* Simple skeleton loader - lighter weight */
 .project-image::before {
     content: '';
     position: absolute;
@@ -606,52 +606,13 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg,
-            rgba(99, 102, 241, 0.1) 0%,
-            rgba(139, 92, 246, 0.15) 25%,
-            rgba(99, 102, 241, 0.1) 50%,
-            rgba(139, 92, 246, 0.15) 75%,
-            rgba(99, 102, 241, 0.1) 100%);
-    background-size: 400% 400%;
-    animation: skeleton-pulse 2s ease-in-out infinite;
+    background: linear-gradient(135deg, #1a1a2e 0%, #252545 50%, #1a1a2e 100%);
     z-index: 1;
 }
 
-.project-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.1) 50%,
-            transparent 100%);
-    animation: skeleton-shine 2s infinite;
-    z-index: 2;
-}
-
-@keyframes skeleton-pulse {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-@keyframes skeleton-shine {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 100%;
-    }
+/* Hide skeleton when image loads */
+.project-image.loaded::before {
+    display: none;
 }
 
 .project-image img {
