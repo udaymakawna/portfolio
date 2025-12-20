@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHero3D();
     initPlayground();
     initGallery();
+    initImageLoading();
 });
 
 // ================================
@@ -882,6 +883,70 @@ function initGallery() {
             }
         }
     }
+}
+
+// ================================
+// Image Loading & Preloading
+// ================================
+function initImageLoading() {
+    // Handle project images loading state
+    const projectImages = document.querySelectorAll('.project-image img');
+
+    projectImages.forEach(img => {
+        // If image is already cached/loaded
+        if (img.complete && img.naturalHeight !== 0) {
+            markImageLoaded(img);
+        } else {
+            // Add load event listener
+            img.addEventListener('load', () => markImageLoaded(img));
+            img.addEventListener('error', () => markImageLoaded(img)); // Still mark as loaded on error
+        }
+    });
+
+    function markImageLoaded(img) {
+        img.classList.add('loaded');
+        const container = img.closest('.project-image');
+        if (container) {
+            container.classList.add('loaded');
+        }
+    }
+
+    // Preload gallery images for faster lightbox
+    preloadGalleryImages();
+}
+
+function preloadGalleryImages() {
+    const projectCards = document.querySelectorAll('.project-card[data-gallery]');
+
+    // Use Intersection Observer to preload when card is visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                const galleryData = card.dataset.gallery;
+
+                if (galleryData) {
+                    try {
+                        const images = JSON.parse(galleryData);
+                        // Preload first 3 images of each gallery
+                        images.slice(0, 3).forEach(src => {
+                            const link = document.createElement('link');
+                            link.rel = 'prefetch';
+                            link.as = 'image';
+                            link.href = src;
+                            document.head.appendChild(link);
+                        });
+                    } catch (e) {
+                        console.log('Error preloading gallery:', e);
+                    }
+                }
+
+                observer.unobserve(card);
+            }
+        });
+    }, { rootMargin: '200px' });
+
+    projectCards.forEach(card => observer.observe(card));
 }
 
 // ================================
