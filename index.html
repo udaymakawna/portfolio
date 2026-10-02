@@ -5,652 +5,746 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Uday Makawna - Game Designer specializing in Unreal Engine, level design, gameplay mechanics, and immersive storytelling. Based in Gujarat, India.">
-    <meta name="keywords" content="Game Designer, Unreal Engine, Level Design, Game Development, India, Uday Makawna">
-    <meta name="author" content="Uday Makawna">
-    <title>Uday Makawna | Game Designer & Level Designer</title>
+        content="Uday Makawna - Technical Level Designer & Full-Stack Luau Developer. Bridging 6+ years of Unreal Engine 3D level design with custom Luau software engineering: byte buffer canvas engines, packet chunking, and session-locked persistence.">
+    <title>Uday Makawna | Technical Level Designer & Full-Stack Luau Developer</title>
 
-    <!-- Google Fonts - Modern Minimalist -->
+    <!-- Google Fonts: Barlow Condensed (Bold Architectural Display) & Plus Jakarta Sans (Crisp Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- EmailJS for contact form -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-    <!-- Preload project thumbnail images for faster display -->
-    <link rel="preload" as="image" href="images/base builder/basebuilder-1.png">
-    <link rel="preload" as="image" href="images/nyc city/nyc-26.png">
-    <link rel="preload" as="image" href="images/LYRA/lyra-10.png">
-    <link rel="preload" as="image" href="images/horror hospital/horror-1.png">
-    <link rel="preload" as="image" href="images/horror farm/farm-1.png">
-    <link rel="preload" as="image" href="images/Killzone Retribution/killzone-19.png">
+    <!-- Preload Video Posters -->
+    <link rel="preload" as="image" href="images/drawing-engine-poster.png">
+    <link rel="preload" as="image" href="images/drawing-ui-poster.png">
+    <link rel="preload" as="image" href="images/horror lobby/lobby-1.png">
 
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- 3D Background Canvas -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <!-- Top Navigation Bar (Architectural 1px Line System) -->
+    <header class="header">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <span class="logo-text">UM</span>
+                <span class="logo-mark">UM</span>
+                <span class="logo-name">UDAY MAKAWNA</span>
             </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#games" class="nav-link">Projects</a></li>
-                <li><a href="#playground" class="nav-link">Playground</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+
+            <div class="nav-center-action">
+                <a href="#contact" class="nav-resume-btn">
+                    <span>AVAILABLE FOR COMMISSIONS</span>
+                    <span class="pulse-indicator"></span>
+                </a>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#work" class="nav-link">WORK</a>
+                <a href="#stages" class="nav-link">STAGES</a>
+                <a href="#experience" class="nav-link">EXPERIENCE</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
+            </nav>
+
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <p class="hero-greeting">Hello, I'm</p>
-            <h1 class="hero-title">Uday Makawna</h1>
-            <p class="hero-subtitle">Game Designer & Level Designer</p>
-            <p class="hero-description">
-                Game Designer & Level Designer building immersive environments in Unreal Engine and Roblox — from horror atmospheres to scalable game systems.
-            </p>
-            <div class="hero-buttons">
-                <a href="#games" class="btn btn-primary">
-                    <span>View Work</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#contact" class="btn btn-ghost">
-                    <span>Get In Touch</span>
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">13+</span>
-                    <span class="stat-label">Years Gaming Instinct</span>
+    <main>
+        <!-- Hero Section (Swiss Editorial Monograph Style) -->
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                <!-- Massive Condensed Architectural Heading -->
+                <div class="hero-huge-title">
+                    <div class="title-row title-solid">TECHNICAL</div>
+                    <div class="title-row title-outline">LEVEL DESIGNER</div>
+                    <div class="title-row title-solid">& FULL-STACK LUAU</div>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-number">10K+</span>
-                    <span class="stat-label">Server Community Manager</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-number">6+</span>
-                    <span class="stat-label">Shipped Projects</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-visual" id="hero-3d"></div>
-        <div class="scroll-hint">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-label">About</div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2 class="section-title">Building worlds that players <span class="highlight">remember</span></h2>
-                    <p>
-                        I'm a Game Designer pursuing my BTech final year in Computer Science at Charusat University.
-                        With hands-on experience at Akiyam Solutions and Arkham Archives, I specialize in creating
-                        engaging gameplay experiences using Unreal Engine and Roblox.
-                    </p>
-                    <p>
-                        My expertise spans level design, gameplay scripting, AI behavior design, and interactive
-                        storytelling.
-                        With 13+ years of gaming experience and competitive eSports background, I bring both player
-                        perspective and technical skills to every project.
-                    </p>
-                    <div class="about-badges">
-                        <div class="badge">
-                            <i class="fas fa-trophy"></i>
-                            <span>#1 Asia - Shadow Fight 3</span>
+                <!-- Middle Bio & Rotating Stamp Badge Row -->
+                <div class="hero-sub-block">
+                    <!-- Left: Rotating Circular SVG Stamp Badge -->
+                    <div class="stamp-badge-wrap">
+                        <div class="rotating-stamp">
+                            <svg viewBox="0 0 100 100" class="stamp-svg">
+                                <path id="stamp-path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                                <text class="stamp-text">
+                                    <textPath href="#stamp-path" startOffset="0%">
+                                        ★ OPEN FOR COMMISSIONS ★ 2026 CONTRACTS
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="stamp-center-dot"></div>
                         </div>
-                        <div class="badge">
-                            <i class="fas fa-medal"></i>
-                            <span>Top 52 - COD Mobile National</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-server"></i>
-                            <span>10K+ Minecraft Server Manager</span>
+                    </div>
+
+                    <!-- Right: Bio Statement & Action CTA Buttons -->
+                    <div class="hero-bio-col">
+                        <p class="hero-bio-lead">
+                            Bridging <strong>6+ years of Unreal Engine 3D level design</strong> with <strong>custom Luau software engineering</strong>: custom canvas engines, 195KB packet chunking, and session-locked persistence.
+                        </p>
+                        <div class="hero-action-row">
+                            <a href="#work" class="editorial-btn editorial-btn-solid">
+                                <span>EXPLORE WORK</span>
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+                            <a href="#contact" class="editorial-btn editorial-btn-outline">
+                                <span>GET IN TOUCH</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="about-visual">
-                    <div class="about-card">
-                        <img src="images/me/me.png" alt="Uday Makawna" class="about-image">
+
+                <!-- 4 Architectural Metric Cells (Hairline Dividers) -->
+                <div class="hero-metrics-grid">
+                    <div class="metric-cell">
+                        <span class="cell-number">02</span>
+                        <div class="cell-label">
+                            <strong>LIVE ROBLOX FLAGSHIPS</strong>
+                            <span>Drawing Studio & Pea Game</span>
+                        </div>
+                    </div>
+                    <div class="metric-cell">
+                        <span class="cell-number">6+</span>
+                        <div class="cell-label">
+                            <strong>YEARS 3D LEVEL DESIGN</strong>
+                            <span>Unreal Engine 5 & Roblox Studio</span>
+                        </div>
+                    </div>
+                    <div class="metric-cell">
+                        <span class="cell-number">STRICT</span>
+                        <div class="cell-label">
+                            <strong>SERVER AUTHORITY</strong>
+                            <span>Zero client-trust security & Trove</span>
+                        </div>
+                    </div>
+                    <div class="metric-cell">
+                        <span class="cell-number">124+</span>
+                        <div class="cell-label">
+                            <strong>PORTFOLIO RENDERS</strong>
+                            <span>High-res lighting & sightlines</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <div class="section-label">Experience</div>
-            <h2 class="section-title">Where I've <span class="highlight">worked</span></h2>
-            <div class="exp-grid">
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <span class="exp-date">Jun 2026 - Present</span>
-                        <span class="exp-type">Freelance</span>
-                    </div>
-                    <h3>Lead Programmer & UI Engineer</h3>
-                    <p class="exp-company">Roblox / Independent</p>
-                    <ul class="exp-list">
-                        <li>Building DataStore-backed inventory systems and server-authoritative gameplay logic for Roblox freelance clients</li>
-                        <li>Designing responsive UI/UX components and HUD layouts in Roblox Studio</li>
-                        <li>Scripting client-server RemoteEvent type validation and state logic in Luau</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <span class="exp-date">Jan 2025 - Present</span>
-                        <span class="exp-type">Freelance</span>
-                    </div>
-                    <h3>Game Designer & Developer</h3>
-                    <p class="exp-company">Game Genesis</p>
-                    <ul class="exp-list">
-                        <li>Designing core gameplay loops, system architecture, and level progression</li>
-                        <li>Developing mechanics and scripting interactions for engaging player experiences</li>
-                        <li>Collaborating directly with clients to deliver polished, production-ready games</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <span class="exp-date">Jul 2025 - Mar 2026</span>
-                        <span class="exp-type">Full-time</span>
-                    </div>
-                    <h3>Game Designer</h3>
-                    <p class="exp-company">Akiyam Solutions Pvt Ltd</p>
-                    <ul class="exp-list">
-                        <li>Designing gameplay systems and level layouts using Unreal Engine Blueprints</li>
-                        <li>Collaborating with cross-functional teams on game flow and UI/UX</li>
-                        <li>Conducting playtests to optimize player retention</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <span class="exp-date">Jan 2025 - Jun 2025</span>
-                        <span class="exp-type">Internship</span>
-                    </div>
-                    <h3>Intern Game Designer</h3>
-                    <p class="exp-company">Akiyam Solutions Pvt Ltd</p>
-                    <ul class="exp-list">
-                        <li>Supported level design and mission flow development</li>
-                        <li>Documented game design proposals and balancing plans</li>
-                        <li>Refined core mechanics through iterative testing</li>
-                    </ul>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <span class="exp-date">May 2024 - Jul 2024</span>
-                        <span class="exp-type">Internship</span>
-                    </div>
-                    <h3>Game & Level Designer</h3>
-                    <p class="exp-company">Arkham Archives</p>
-                    <ul class="exp-list">
-                        <li>Developed interactive educational game modules</li>
-                        <li>Combined gamification with storytelling</li>
-                        <li>Coordinated eSports tournaments</li>
-                    </ul>
-                </div>
+        <!-- Continuous Infinite Marquee Ticker -->
+        <div class="marquee-strip" aria-hidden="true">
+            <div class="marquee-track">
+                <span>✕ FULL-STACK LUAU</span>
+                <span>✕ 3D LEVEL DESIGN</span>
+                <span>✕ PACKET CHUNKING</span>
+                <span>✕ VOLUMETRIC LIGHTING</span>
+                <span>✕ PROFILESTORE PERSISTENCE</span>
+                <span>✕ UNREAL ENGINE 5</span>
+                <span>✕ EDITABLEIMAGE BUFFERS</span>
+                <span>✕ SIGHTLINE PACING</span>
+                <span>✕ FULL-STACK LUAU</span>
+                <span>✕ 3D LEVEL DESIGN</span>
+                <span>✕ PACKET CHUNKING</span>
+                <span>✕ VOLUMETRIC LIGHTING</span>
+                <span>✕ PROFILESTORE PERSISTENCE</span>
+                <span>✕ UNREAL ENGINE 5</span>
+                <span>✕ EDITABLEIMAGE BUFFERS</span>
+                <span>✕ SIGHTLINE PACING</span>
             </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section class="games" id="games">
-        <div class="container">
-            <div class="section-label">Projects</div>
-            <h2 class="section-title">Selected <span class="highlight">work</span></h2>
-            <div class="projects-grid">
-                <!-- Project 1: Base Builder -->
-                <article class="project-card large"
-                    data-gallery='["images/base builder/basebuilder-1.png", "images/base builder/basebuilder-2.png", "images/base builder/basebuilder-3.png", "images/base builder/basebuilder-4.png", "images/base builder/basebuilder-5.png", "images/base builder/basebuilder-6.png", "images/base builder/basebuilder-7.png", "images/base builder/basebuilder-8.png", "images/base builder/basebuilder-9.png", "images/base builder/basebuilder-10.png", "images/base builder/basebuilder-11.png", "images/base builder/basebuilder-12.png", "images/base builder/basebuilder-13.png", "images/base builder/basebuilder-14.png", "images/base builder/basebuilder-15.png", "images/base builder/basebuilder-16.png", "images/base builder/basebuilder-17.png", "images/base builder/basebuilder-18.png", "images/base builder/basebuilder-19.png", "images/base builder/basebuilder-20.png", "images/base builder/basebuilder-21.png", "images/base builder/basebuilder-22.png", "images/base builder/basebuilder-23.png", "images/base builder/basebuilder-24.png", "images/base builder/basebuilder-25.png"]'
-                    data-title="Base Builder">
-                    <div class="project-image">
-                        <img src="images/base builder/basebuilder-1.png" alt="Base Builder" loading="lazy">
+        <!-- Selected Work Section (2-Column Architectural Grid) -->
+        <section class="section work-section" id="work">
+            <div class="container">
+                <div class="section-header-bar">
+                    <div class="section-title-wrap">
+                        <span class="section-num">/ 01</span>
+                        <h2 class="section-title">SELECTED WORK</h2>
                     </div>
-                    <div class="project-content">
-                        <span class="project-type">Game Development</span>
-                        <h3>Base Builder</h3>
-                        <p>Complete game development including level design, UI/UX design, game mechanics, and full
-                            development cycle using Unreal Engine.</p>
-                        <div class="project-tags">
-                            <span>Level Design</span>
-                            <span>UI Design</span>
-                            <span>Game Design</span>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: NYC City -->
-                <article class="project-card large"
-                    data-gallery='["images/nyc city/nyc-1.png", "images/nyc city/nyc-2.png", "images/nyc city/nyc-3.png", "images/nyc city/nyc-4.png", "images/nyc city/nyc-5.png", "images/nyc city/nyc-6.png", "images/nyc city/nyc-7.png", "images/nyc city/nyc-8.png", "images/nyc city/nyc-9.png", "images/nyc city/nyc-10.png", "images/nyc city/nyc-11.png", "images/nyc city/nyc-12.png", "images/nyc city/nyc-13.png", "images/nyc city/nyc-14.png", "images/nyc city/nyc-15.png", "images/nyc city/nyc-16.png", "images/nyc city/nyc-17.png", "images/nyc city/nyc-18.png", "images/nyc city/nyc-19.png", "images/nyc city/nyc-20.png", "images/nyc city/nyc-21.png", "images/nyc city/nyc-22.png", "images/nyc city/nyc-23.png", "images/nyc city/nyc-24.png", "images/nyc city/nyc-25.png", "images/nyc city/nyc-26.png", "images/nyc city/nyc-27.png", "images/nyc city/nyc-28.png", "images/nyc city/nyc-29.png", "images/nyc city/nyc-30.png"]'
-                    data-title="NYC City">
-                    <div class="project-image">
-                        <img src="images/nyc city/nyc-26.png" alt="NYC City" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <span class="project-type">Environment Design</span>
-                        <h3>NYC City</h3>
-                        <p>Detailed urban environment recreation featuring New York City with realistic architecture and
-                            atmosphere.</p>
-                        <div class="project-tags">
-                            <span>Level Design</span>
-                            <span>Game Design</span>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Lyra Extended -->
-                <article class="project-card large"
-                    data-gallery='["images/LYRA/lyra-1.png", "images/LYRA/lyra-2.png", "images/LYRA/lyra-3.png", "images/LYRA/lyra-4.png", "images/LYRA/lyra-5.png", "images/LYRA/lyra-6.png", "images/LYRA/lyra-7.png", "images/LYRA/lyra-8.png", "images/LYRA/lyra-9.png", "images/LYRA/lyra-10.png", "images/LYRA/lyra-11.png", "images/LYRA/lyra-12.png"]'
-                    data-title="Lyra Extended">
-                    <div class="project-image">
-                        <img src="images/LYRA/lyra-10.png" alt="Lyra Extended" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <span class="project-type">Game Modification</span>
-                        <h3>Lyra Extended</h3>
-                        <p>Extended Epic Games' Lyra with custom levels and a complete random weather system including
-                            thunderstorms, sandstorms, snowstorms, rain, and fog effects.</p>
-                        <div class="project-tags">
-                            <span>Unreal Engine 5</span>
-                            <span>Level Design</span>
-                            <span>Weather System</span>
-                            <span>Blueprints</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4: Horror Hospital -->
-                <article class="project-card large"
-                    data-gallery='["images/horror hospital/horror-1.png", "images/horror hospital/horror-2.png", "images/horror hospital/horror-3.png", "images/horror hospital/horror-4.png", "images/horror hospital/horror-5.png", "images/horror hospital/horror-6.png"]'
-                    data-title="Horror Hospital">
-                    <div class="project-image">
-                        <img src="images/horror hospital/horror-1.png" alt="Horror Hospital" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <span class="project-type">Horror Game</span>
-                        <h3>Horror Hospital</h3>
-                        <p>An atmospheric horror game environment set in an abandoned hospital with immersive lighting
-                            and suspenseful level design.</p>
-                        <div class="project-tags">
-                            <span>Level Design</span>
-                            <span>Horror</span>
-                            <span>Environment Art</span>
-                            <span>Lighting</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 5: Horror Farm -->
-                <article class="project-card large"
-                    data-gallery='["images/horror farm/farm-1.png", "images/horror farm/farm-2.png", "images/horror farm/farm-3.png", "images/horror farm/farm-4.png", "images/horror farm/farm-5.png", "images/horror farm/farm-6.png", "images/horror farm/farm-7.png", "images/horror farm/farm-8.png", "images/horror farm/farm-9.png", "images/horror farm/farm-10.png", "images/horror farm/farm-11.png", "images/horror farm/farm-12.png", "images/horror farm/farm-13.png", "images/horror farm/farm-14.png", "images/horror farm/farm-15.png", "images/horror farm/farm-16.png", "images/horror farm/farm-17.png", "images/horror farm/farm-18.png", "images/horror farm/farm-19.png", "images/horror farm/farm-20.png", "images/horror farm/farm-21.png", "images/horror farm/farm-22.png", "images/horror farm/farm-23.png", "images/horror farm/farm-24.png", "images/horror farm/farm-25.png"]'
-                    data-title="Horror Farm">
-                    <div class="project-image">
-                        <img src="images/horror farm/farm-1.png" alt="Horror Farm" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <span class="project-type">Horror Game</span>
-                        <h3>Horror Farm</h3>
-                        <p>A terrifying rural horror environment featuring an abandoned farm with atmospheric tension
-                            and eerie level design.</p>
-                        <div class="project-tags">
-                            <span>Level Design</span>
-                            <span>Horror</span>
-                            <span>Environment Art</span>
-                            <span>Atmosphere</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 6: Killzone Retribution -->
-                <article class="project-card large"
-                    data-gallery='["images/Killzone Retribution/killzone-1.png", "images/Killzone Retribution/killzone-2.png", "images/Killzone Retribution/killzone-3.png", "images/Killzone Retribution/killzone-4.png", "images/Killzone Retribution/killzone-5.png", "images/Killzone Retribution/killzone-6.png", "images/Killzone Retribution/killzone-7.png", "images/Killzone Retribution/killzone-8.png", "images/Killzone Retribution/killzone-9.png", "images/Killzone Retribution/killzone-10.png", "images/Killzone Retribution/killzone-11.png", "images/Killzone Retribution/killzone-12.png", "images/Killzone Retribution/killzone-13.png", "images/Killzone Retribution/killzone-14.png", "images/Killzone Retribution/killzone-15.png", "images/Killzone Retribution/killzone-16.png", "images/Killzone Retribution/killzone-17.png", "images/Killzone Retribution/killzone-18.png", "images/Killzone Retribution/killzone-19.png", "images/Killzone Retribution/killzone-20.png", "images/Killzone Retribution/killzone-21.png"]'
-                    data-title="Killzone Retribution">
-                    <div class="project-image">
-                        <img src="images/Killzone Retribution/killzone-19.png" alt="Killzone Retribution"
-                            loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <span class="project-type">Sci-Fi Horror</span>
-                        <h3>Killzone Retribution</h3>
-                        <p>A third-person sci-fi space horror game featuring intense atmospheric environments, survival
-                            mechanics, and immersive level design.</p>
-                        <div class="project-tags">
-                            <span>Level Design</span>
-                            <span>Sci-Fi</span>
-                            <span>Space Horror</span>
-                            <span>Third Person</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 7: Roblox Systems & Building Architecture -->
-                <article class="project-card large"
-                    data-gallery='["images/base builder/basebuilder-2.png", "images/base builder/basebuilder-1.png", "images/base builder/basebuilder-3.png"]'
-                    data-title="Roblox Systems & Building">
-                    <div class="project-image">
-                        <img src="images/base builder/basebuilder-2.png" alt="Roblox Systems & Building" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <span class="project-type">Roblox Development</span>
-                        <h3>Roblox Systems & Building</h3>
-                        <p>Server-authoritative Luau gameplay scripting, ProfileStore session data persistence, RemoteEvent validation, and custom Roblox Studio building environments.</p>
-                        <div class="project-tags">
-                            <span>Roblox</span>
-                            <span>Luau</span>
-                            <span>DataStore</span>
-                            <span>Server Authority</span>
-                            <span>UI/UX</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3 class="lightbox-title" id="lightbox-title">Project Gallery</h3>
-            <div class="lightbox-gallery">
-                <button class="lightbox-nav prev" id="lightbox-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="lightbox-image-container">
-                    <img src="" alt="Gallery Image" id="lightbox-image">
-                </div>
-                <button class="lightbox-nav next" id="lightbox-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
-            <div class="lightbox-counter">
-                <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Interactive Playground Section -->
-    <section class="playground" id="playground">
-        <div class="container">
-            <div class="section-label">Playground</div>
-            <h2 class="section-title">Scripting <span class="highlight">playground</span></h2>
-            <p class="section-desc">Small technical exercises in interaction and state logic — not level design pieces.</p>
-
-            <div class="playground-grid">
-                <!-- 3D Cube Game -->
-                <div class="playground-card">
-                    <div class="playground-canvas" id="cube-game">
-                        <canvas id="cube-canvas"></canvas>
-                    </div>
-                    <div class="playground-info">
-                        <h3>3D Cube Runner</h3>
-                        <p>Use arrow keys or drag to rotate. Demonstrates physics and 3D interaction.</p>
-                        <div class="playground-controls">
-                            <button class="control-btn" id="cube-reset"><i class="fas fa-redo"></i></button>
-                            <span class="control-hint">Drag to rotate</span>
-                        </div>
+                    <div class="filter-bar">
+                        <button class="filter-pill active" data-filter="roblox">Featured Roblox</button>
+                        <button class="filter-pill" data-filter="unreal">Unreal & Level Design</button>
+                        <button class="filter-pill" data-filter="all">All Projects</button>
                     </div>
                 </div>
 
-                <!-- Particle System -->
-                <div class="playground-card">
-                    <div class="playground-canvas" id="particle-game">
-                        <canvas id="particle-canvas"></canvas>
-                    </div>
-                    <div class="playground-info">
-                        <h3>Particle System</h3>
-                        <p>Move your mouse to interact with particles. Shows procedural effects.</p>
-                        <div class="playground-controls">
-                            <button class="control-btn" id="particle-reset"><i class="fas fa-redo"></i></button>
-                            <span class="control-hint">Move mouse</span>
+                <!-- 2-Column Architectural Projects Grid -->
+                <div class="architectural-grid">
+                    <!-- Project 1: Drawing Studio Canvas Engine (Video) -->
+                    <article class="project-tile" data-category="roblox" data-type="video" data-video="videos/drawing-engine-showcase.mp4" data-title="Drawing Studio: Canvas Engine & Netcode" data-desc="Procreate-style in-game drawing studio built with low-level EditableImage pixel buffers, O(N) canvas shift tool, and 195KB packet-chunked server replication.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">DRAWING STUDIO: CANVAS ENGINE</h3>
+                                <p class="tile-sub">EditableImage CPU pixel buffers, O(N) shift tool, 195KB packet chunking</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Full-Stack Luau</span>
+                                <span class="tag-pill">EditableImage</span>
+                                <span class="tag-pill">Packet Chunking</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="tile-media-window">
+                            <video class="tile-video" src="videos/drawing-engine-showcase.mp4" poster="images/drawing-engine-poster.png" autoplay loop muted playsinline preload="metadata"></video>
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-play"></i> Watch Full 1080p Video</div>
+                            </div>
+                        </div>
+                        <div class="tile-footer">
+                            <a href="https://www.roblox.com/games/81793212049100/DrawingGame" target="_blank" class="tile-link" rel="noopener">
+                                <i class="fas fa-gamepad"></i> Play Game
+                            </a>
+                            <a href="https://github.com/udaymakawna/roblox-drawing-studio" target="_blank" class="tile-link" rel="noopener">
+                                <i class="fab fa-github"></i> View GitHub
+                            </a>
+                            <button class="tile-btn view-btn"><i class="fas fa-expand"></i> Fullscreen Video</button>
+                        </div>
+                    </article>
 
-                <!-- Memory Game -->
-                <div class="playground-card">
-                    <div class="playground-canvas" id="memory-game">
-                        <div class="memory-grid" id="memory-grid"></div>
-                    </div>
-                    <div class="playground-info">
-                        <h3>Memory Match</h3>
-                        <p>Classic memory game demonstrating game logic and state management.</p>
-                        <div class="playground-controls">
-                            <button class="control-btn" id="memory-reset"><i class="fas fa-redo"></i></button>
-                            <span class="control-hint" id="memory-score">Moves: 0</span>
+                    <!-- Project 2: Drawing Studio LiveOps UI & Shop (Video) -->
+                    <article class="project-tile" data-category="roblox" data-type="video" data-video="videos/drawing-ui-shop-showcase.mp4" data-title="Drawing Studio: In-Game Settings, Shop & Systems" data-desc="Complete custom in-game settings modal, audio volume sliders, day/night lighting toggles, gacha currency rolls, promo code redemption, and daily streak persistence.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">DRAWING STUDIO: LIVEOPS UI & SHOP</h3>
+                                <p class="tile-sub">Custom settings modal, audio sliders, gacha shop rolls, daily streaks</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Systems & UI</span>
+                                <span class="tag-pill">Settings Modal</span>
+                                <span class="tag-pill">Gacha Economy</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="tile-media-window">
+                            <video class="tile-video" src="videos/drawing-ui-shop-showcase.mp4" poster="images/drawing-ui-poster.png" autoplay loop muted playsinline preload="metadata"></video>
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-play"></i> Watch Full 1080p Video</div>
+                            </div>
+                        </div>
+                        <div class="tile-footer">
+                            <a href="https://www.roblox.com/games/81793212049100/DrawingGame" target="_blank" class="tile-link" rel="noopener">
+                                <i class="fas fa-gamepad"></i> Play Game
+                            </a>
+                            <a href="https://github.com/udaymakawna/roblox-drawing-studio" target="_blank" class="tile-link" rel="noopener">
+                                <i class="fab fa-github"></i> View GitHub
+                            </a>
+                            <button class="tile-btn view-btn"><i class="fas fa-expand"></i> Fullscreen Video</button>
+                        </div>
+                    </article>
 
-                <!-- Reaction Time -->
-                <div class="playground-card">
-                    <div class="playground-canvas" id="reaction-game">
-                        <div class="reaction-circle" id="reaction-circle">
-                            <span id="reaction-text">Click to Start</span>
+                    <!-- Project 3: Horror Lobby Atmospheric Composition (5 Renders) -->
+                    <article class="project-tile" data-category="roblox" data-type="gallery" data-gallery="[&quot;images/horror lobby/lobby-1.png&quot;,&quot;images/horror lobby/lobby-2.png&quot;,&quot;images/horror lobby/lobby-3.png&quot;,&quot;images/horror lobby/lobby-4.png&quot;,&quot;images/horror lobby/lobby-5.png&quot;]" data-title="Horror Lobby: Atmospheric Composition" data-desc="Chiaroscuro lighting study and modular horror lobby environment in Roblox Studio featuring custom volumetric fog, high-contrast shadow maps, and PBR textures.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">HORROR LOBBY: ATMOSPHERIC COMPOSITION</h3>
+                                <p class="tile-sub">Chiaroscuro lighting, custom volumetric fog, and PBR materials</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Roblox Studio</span>
+                                <span class="tag-pill">Volumetric Lighting</span>
+                                <span class="tag-pill">Atmosphere FX</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="playground-info">
-                        <h3>Reaction Test</h3>
-                        <p>Test your reflexes! Click when the circle turns green.</p>
-                        <div class="playground-controls">
-                            <button class="control-btn" id="reaction-reset"><i class="fas fa-redo"></i></button>
-                            <span class="control-hint" id="reaction-score">Best: --ms</span>
+                        <div class="tile-media-window">
+                            <img src="images/horror lobby/lobby-1.png" alt="Horror Lobby" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-images"></i> 5 Studio Renders (Click to View)</div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <div class="tile-footer">
+                            <span class="gallery-count"><i class="fas fa-camera"></i> 5 High-Res Renders</span>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Full Gallery</button>
+                        </div>
+                    </article>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <div class="section-label">Skills</div>
-            <h2 class="section-title">Tools & <span class="highlight">technologies</span></h2>
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h3>Game Engines</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Unreal Engine</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 90%"></div>
+                    <!-- Project 4: Pea Game | Don't Get Caught! (Roblox Flagship) -->
+                    <article class="project-tile" data-category="roblox" data-type="gallery" data-gallery="[&quot;images/horror farm/farm-1.png&quot;,&quot;images/horror farm/farm-2.png&quot;]" data-title="Pea Game | Don't Get Caught!" data-desc="Multiplayer survival experience featuring dynamic AI dummy balancing, state machine round loops, spatial proximity detection, and coin economy.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">PEA GAME: DON'T GET CAUGHT!</h3>
+                                <p class="tile-sub">State machine game loops, AI dummy balancing, and multiplayer rounds</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Full-Stack Luau</span>
+                                <span class="tag-pill">State Machines</span>
+                                <span class="tag-pill">AI Dummy Logic</span>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Roblox / Luau</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 95%"></div>
+                        <div class="tile-media-window">
+                            <img src="images/horror farm/farm-1.png" alt="Pea Game" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-gamepad"></i> Playable Flagship on Roblox</div>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Unity</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 75%"></div>
+                        <div class="tile-footer">
+                            <a href="https://www.roblox.com/games/136326725698756/Pea-Game-Dont-Get-Caught" target="_blank" class="tile-link" rel="noopener">
+                                <i class="fas fa-gamepad"></i> Play Game
+                            </a>
+                            <a href="https://github.com/udaymakawna/roblox-pea-game" target="_blank" class="tile-link" rel="noopener">
+                                <i class="fab fa-github"></i> View GitHub
+                            </a>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Details</button>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Base Builder Defensive Flow (25 Renders) -->
+                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/base builder/basebuilder-1.png&quot;,&quot;images/base builder/basebuilder-10.png&quot;,&quot;images/base builder/basebuilder-11.png&quot;,&quot;images/base builder/basebuilder-12.png&quot;,&quot;images/base builder/basebuilder-13.png&quot;,&quot;images/base builder/basebuilder-14.png&quot;,&quot;images/base builder/basebuilder-15.png&quot;,&quot;images/base builder/basebuilder-16.png&quot;,&quot;images/base builder/basebuilder-17.png&quot;,&quot;images/base builder/basebuilder-18.png&quot;,&quot;images/base builder/basebuilder-19.png&quot;,&quot;images/base builder/basebuilder-2.png&quot;,&quot;images/base builder/basebuilder-20.png&quot;,&quot;images/base builder/basebuilder-21.png&quot;,&quot;images/base builder/basebuilder-22.png&quot;,&quot;images/base builder/basebuilder-23.png&quot;,&quot;images/base builder/basebuilder-24.png&quot;,&quot;images/base builder/basebuilder-25.png&quot;,&quot;images/base builder/basebuilder-3.png&quot;,&quot;images/base builder/basebuilder-4.png&quot;,&quot;images/base builder/basebuilder-5.png&quot;,&quot;images/base builder/basebuilder-6.png&quot;,&quot;images/base builder/basebuilder-7.png&quot;,&quot;images/base builder/basebuilder-8.png&quot;,&quot;images/base builder/basebuilder-9.png&quot;]" data-title="Base Builder: Defensive Level Architecture" data-desc="Modular defensive compound featuring fortified chokepoints, layered perimeter sightlines, vertical sniper perches, and interior cover lanes.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">BASE BUILDER: DEFENSIVE FLOW</h3>
+                                <p class="tile-sub">Modular fortified compounds, choke points, and macro defensive layout</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Unreal Engine 5</span>
+                                <span class="tag-pill">Modular MLOs</span>
+                                <span class="tag-pill">Sightline Pacing</span>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Godot</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 65%"></div>
+                        <div class="tile-media-window">
+                            <img src="images/base builder/basebuilder-1.png" alt="Base Builder" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-images"></i> 25 Level Design Renders</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h3>Design</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Level Design</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 95%"></div>
+                        <div class="tile-footer">
+                            <span class="gallery-count"><i class="fas fa-camera"></i> 25 High-Res Renders</span>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Gallery (25)</button>
+                        </div>
+                    </article>
+
+                    <!-- Project 6: NYC City: Urban Streetscape (30 Renders) -->
+                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/nyc city/nyc-1.png&quot;,&quot;images/nyc city/nyc-10.png&quot;,&quot;images/nyc city/nyc-11.png&quot;,&quot;images/nyc city/nyc-12.png&quot;,&quot;images/nyc city/nyc-13.png&quot;,&quot;images/nyc city/nyc-14.png&quot;,&quot;images/nyc city/nyc-15.png&quot;,&quot;images/nyc city/nyc-16.png&quot;,&quot;images/nyc city/nyc-17.png&quot;,&quot;images/nyc city/nyc-18.png&quot;,&quot;images/nyc city/nyc-19.png&quot;,&quot;images/nyc city/nyc-2.png&quot;,&quot;images/nyc city/nyc-20.png&quot;,&quot;images/nyc city/nyc-21.png&quot;,&quot;images/nyc city/nyc-22.png&quot;,&quot;images/nyc city/nyc-23.png&quot;,&quot;images/nyc city/nyc-24.png&quot;,&quot;images/nyc city/nyc-25.png&quot;,&quot;images/nyc city/nyc-26.png&quot;,&quot;images/nyc city/nyc-27.png&quot;,&quot;images/nyc city/nyc-28.png&quot;,&quot;images/nyc city/nyc-29.png&quot;,&quot;images/nyc city/nyc-3.png&quot;,&quot;images/nyc city/nyc-30.png&quot;,&quot;images/nyc city/nyc-4.png&quot;,&quot;images/nyc city/nyc-5.png&quot;,&quot;images/nyc city/nyc-6.png&quot;,&quot;images/nyc city/nyc-7.png&quot;,&quot;images/nyc city/nyc-8.png&quot;,&quot;images/nyc city/nyc-9.png&quot;]" data-title="NYC City: Urban Streetscape & Atmosphere" data-desc="Metropolitan street canyon level design capturing vertical sightlines, dense street-level dressing, and atmospheric neon night lighting.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">NYC CITY: URBAN STREETSCAPE</h3>
+                                <p class="tile-sub">Metropolitan street canyon, vertical sightlines, and neon night lighting</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Unreal Engine 5</span>
+                                <span class="tag-pill">Atmospheric Scale</span>
+                                <span class="tag-pill">Street Density</span>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Gameplay Scripting</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 85%"></div>
+                        <div class="tile-media-window">
+                            <img src="images/nyc city/nyc-1.png" alt="NYC City" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-images"></i> 30 Level Design Renders</div>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">AI Behavior</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 80%"></div>
+                        <div class="tile-footer">
+                            <span class="gallery-count"><i class="fas fa-camera"></i> 30 High-Res Renders</span>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Gallery (30)</button>
+                        </div>
+                    </article>
+
+                    <!-- Project 7: Lyra Tactical Arena Shooter (12 Renders) -->
+                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/LYRA/lyra-1.png&quot;,&quot;images/LYRA/lyra-10.png&quot;,&quot;images/LYRA/lyra-11.png&quot;,&quot;images/LYRA/lyra-12.png&quot;,&quot;images/LYRA/lyra-2.png&quot;,&quot;images/LYRA/lyra-3.png&quot;,&quot;images/LYRA/lyra-4.png&quot;,&quot;images/LYRA/lyra-5.png&quot;,&quot;images/LYRA/lyra-6.png&quot;,&quot;images/LYRA/lyra-7.png&quot;,&quot;images/LYRA/lyra-8.png&quot;,&quot;images/LYRA/lyra-9.png&quot;]" data-title="Lyra: Tactical Arena Shooter" data-desc="Fast-paced competitive shooter arena layout with carefully timed engagement lanes, dynamic cover rotation, and multi-tier sightlines.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">LYRA: TACTICAL ARENA SHOOTER</h3>
+                                <p class="tile-sub">Competitive arena flow, cover lane timing, and multi-tier sightlines</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Unreal Engine 5</span>
+                                <span class="tag-pill">Combat Sightlines</span>
+                                <span class="tag-pill">Competitive Flow</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h3>Tools</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Blender</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 70%"></div>
+                        <div class="tile-media-window">
+                            <img src="images/LYRA/lyra-1.png" alt="Lyra Arena" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-images"></i> 12 Tactical Renders</div>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Git</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 80%"></div>
+                        <div class="tile-footer">
+                            <span class="gallery-count"><i class="fas fa-camera"></i> 12 High-Res Renders</span>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Gallery (12)</button>
+                        </div>
+                    </article>
+
+                    <!-- Project 8: Horror Hospital Environmental Storytelling (6 Renders) -->
+                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/horror hospital/horror-1.png&quot;,&quot;images/horror hospital/horror-2.png&quot;,&quot;images/horror hospital/horror-3.png&quot;,&quot;images/horror hospital/horror-4.png&quot;,&quot;images/horror hospital/horror-5.png&quot;,&quot;images/horror hospital/horror-6.png&quot;]" data-title="Horror Hospital: Environmental Storytelling" data-desc="Abandoned medical facility designed around psychological dread, claustrophobic hallways, directional audio cues, and chiaroscuro lighting.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">HORROR HOSPITAL: PSYCHOLOGICAL TENSION</h3>
+                                <p class="tile-sub">Claustrophobic hallways, chiaroscuro lighting, and tension pacing</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Unreal Engine 4/5</span>
+                                <span class="tag-pill">Chiaroscuro</span>
+                                <span class="tag-pill">Horror Storytelling</span>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Twinmotion</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="--progress: 75%"></div>
+                        <div class="tile-media-window">
+                            <img src="images/horror hospital/horror-1.png" alt="Horror Hospital" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-images"></i> 6 Studio Renders</div>
                             </div>
                         </div>
-                    </div>
+                        <div class="tile-footer">
+                            <span class="gallery-count"><i class="fas fa-camera"></i> 6 High-Res Renders</span>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Gallery (6)</button>
+                        </div>
+                    </article>
+
+                    <!-- Project 9: Horror Farm Open Tension & Foliage (25 Renders) -->
+                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/horror farm/farm-1.png&quot;,&quot;images/horror farm/farm-10.png&quot;,&quot;images/horror farm/farm-11.png&quot;,&quot;images/horror farm/farm-12.png&quot;,&quot;images/horror farm/farm-13.png&quot;,&quot;images/horror farm/farm-14.png&quot;,&quot;images/horror farm/farm-15.png&quot;,&quot;images/horror farm/farm-16.png&quot;,&quot;images/horror farm/farm-17.png&quot;,&quot;images/horror farm/farm-18.png&quot;,&quot;images/horror farm/farm-19.png&quot;,&quot;images/horror farm/farm-2.png&quot;,&quot;images/horror farm/farm-20.png&quot;,&quot;images/horror farm/farm-21.png&quot;,&quot;images/horror farm/farm-22.png&quot;,&quot;images/horror farm/farm-23.png&quot;,&quot;images/horror farm/farm-24.png&quot;,&quot;images/horror farm/farm-25.png&quot;,&quot;images/horror farm/farm-3.png&quot;,&quot;images/horror farm/farm-4.png&quot;,&quot;images/horror farm/farm-5.png&quot;,&quot;images/horror farm/farm-6.png&quot;,&quot;images/horror farm/farm-7.png&quot;,&quot;images/horror farm/farm-8.png&quot;,&quot;images/horror farm/farm-9.png&quot;]" data-title="Horror Farm: Open-World Tension" data-desc="Large rural agricultural environment with dense foliage, cornfield sightline breaks, barn chokepoints, and oppressive night fog.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">HORROR FARM: OPEN TENSION & VEGETATION</h3>
+                                <p class="tile-sub">Expansive agricultural grounds, line-of-sight breaks, and foggy night mood</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Unreal Engine</span>
+                                <span class="tag-pill">Landscape Foliage</span>
+                                <span class="tag-pill">Tension Pacing</span>
+                            </div>
+                        </div>
+                        <div class="tile-media-window">
+                            <img src="images/horror farm/farm-1.png" alt="Horror Farm" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-images"></i> 25 Environment Renders</div>
+                            </div>
+                        </div>
+                        <div class="tile-footer">
+                            <span class="gallery-count"><i class="fas fa-camera"></i> 25 High-Res Renders</span>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Gallery (25)</button>
+                        </div>
+                    </article>
+
+                    <!-- Project 10: Killzone Retribution Brutalist Battlefield (21 Renders) -->
+                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/Killzone Retribution/killzone-1.png&quot;,&quot;images/Killzone Retribution/killzone-10.png&quot;,&quot;images/Killzone Retribution/killzone-11.png&quot;,&quot;images/Killzone Retribution/killzone-12.png&quot;,&quot;images/Killzone Retribution/killzone-13.png&quot;,&quot;images/Killzone Retribution/killzone-14.png&quot;,&quot;images/Killzone Retribution/killzone-15.png&quot;,&quot;images/Killzone Retribution/killzone-16.png&quot;,&quot;images/Killzone Retribution/killzone-17.png&quot;,&quot;images/Killzone Retribution/killzone-18.png&quot;,&quot;images/Killzone Retribution/killzone-19.png&quot;,&quot;images/Killzone Retribution/killzone-2.png&quot;,&quot;images/Killzone Retribution/killzone-20.png&quot;,&quot;images/Killzone Retribution/killzone-21.png&quot;,&quot;images/Killzone Retribution/killzone-3.png&quot;,&quot;images/Killzone Retribution/killzone-4.png&quot;,&quot;images/Killzone Retribution/killzone-5.png&quot;,&quot;images/Killzone Retribution/killzone-6.png&quot;,&quot;images/Killzone Retribution/killzone-7.png&quot;,&quot;images/Killzone Retribution/killzone-8.png&quot;,&quot;images/Killzone Retribution/killzone-9.png&quot;]" data-title="Killzone Retribution: Tactical Level Design" data-desc="Industrial warzone level layout focusing on high-ground perches, brutalist concrete barriers, fortified bunker choke points, and flanking routes.">
+                        <div class="tile-header">
+                            <div class="tile-title-col">
+                                <h3 class="tile-title">KILLZONE RETRIBUTION: WARZONE LEVEL DESIGN</h3>
+                                <p class="tile-sub">Brutalist battlefield architecture, high-ground perches, and combat flanks</p>
+                            </div>
+                            <div class="tile-pills">
+                                <span class="tag-pill">Unreal Engine</span>
+                                <span class="tag-pill">Pacing & Chokepoints</span>
+                                <span class="tag-pill">Vertical Flanking</span>
+                            </div>
+                        </div>
+                        <div class="tile-media-window">
+                            <img src="images/Killzone Retribution/killzone-1.png" alt="Killzone Warzone" class="tile-img" loading="lazy">
+                            <div class="media-hover-overlay">
+                                <div class="overlay-badge"><i class="fas fa-images"></i> 21 Level Design Renders</div>
+                            </div>
+                        </div>
+                        <div class="tile-footer">
+                            <span class="gallery-count"><i class="fas fa-camera"></i> 21 High-Res Renders</span>
+                            <button class="tile-btn view-btn"><i class="fas fa-search-plus"></i> View Gallery (21)</button>
+                        </div>
+                    </article>
                 </div>
             </div>
-            <div class="soft-skills" style="text-align: center; margin-top: 2rem;">
-                <p style="font-style: italic; color: #94a3b8; font-size: 1rem;">"I playtest obsessively — Base Builder went through six balance passes before ship."</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Education Section -->
-    <section class="education" id="education">
-        <div class="container">
-            <div class="edu-grid">
-                <div class="edu-card">
-                    <span class="edu-status in-progress">Expected 2026</span>
-                    <h3>B.Tech Computer Science</h3>
-                    <p>Charusat University, Gujarat</p>
-                    <span class="edu-year">2026</span>
+        <!-- Stages of Development Accordion (Directly from Reference Video) -->
+        <section class="section stages-section" id="stages">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-num">/ 02</span>
+                    <h2 class="section-title">STAGES OF DEVELOPMENT & ARCHITECTURE</h2>
                 </div>
-                <div class="edu-card">
-                    <span class="edu-status completed">Completed</span>
-                    <h3>Diploma in Computer Engineering</h3>
-                    <p>Om Institute of Engineering, Junagadh</p>
-                    <span class="edu-year">2023</span>
+                <p class="stages-intro">Every game system and environment is built following a strict five-stage engineering and design pipeline:</p>
+
+                <div class="stages-accordion">
+                    <!-- Stage 1 -->
+                    <div class="stage-row active">
+                        <div class="stage-header">
+                            <span class="stage-code">STAGE 01</span>
+                            <h3 class="stage-name">ARCHITECTURE & DATA SCHEMAS</h3>
+                            <span class="stage-icon">✦</span>
+                        </div>
+                        <div class="stage-body">
+                            <p>Designing state machines and data persistence before writing gameplay code. Session-locking via ProfileStore, Trove lifecycle cleanup, and strict client boundary RemoteEvent validation schemas using t.</p>
+                            <ul class="stage-list">
+                                <li>Session-locked persistence (zero item loss during server crashes)</li>
+                                <li>Typed schema validation on every network packet</li>
+                                <li>Trove pattern ensuring zero memory leaks upon player disconnect</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="stage-row">
+                        <div class="stage-header">
+                            <span class="stage-code">STAGE 02</span>
+                            <h3 class="stage-name">NETCODE & PACKET REPLICATION</h3>
+                            <span class="stage-icon">✦</span>
+                        </div>
+                        <div class="stage-body">
+                            <p>Low-bandwidth multiplayer replication. As demonstrated in the Drawing Studio, we chunk 195KB byte buffers into sequential packets to prevent 50KB/s network throttling.</p>
+                            <ul class="stage-list">
+                                <li>Chunked buffer transmission with sequence headers</li>
+                                <li>Client-side prediction with server reconciliation</li>
+                                <li>Bandwidth budgeting under 15 KB/s in active gameplay</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="stage-row">
+                        <div class="stage-header">
+                            <span class="stage-code">STAGE 03</span>
+                            <h3 class="stage-name">3D COMPOSITION & SIGHTLINE PACING</h3>
+                            <span class="stage-icon">✦</span>
+                        </div>
+                        <div class="stage-body">
+                            <p>Composing atmospheric 3D game worlds with clear navigational breadcrumbs, sightline breaks, volumetric fog, and PBR material hierarchies across Unreal Engine and Roblox Studio.</p>
+                            <ul class="stage-list">
+                                <li>Sightline pacing preventing long-range weapon dominance</li>
+                                <li>Modular building kit assembly with clean pivot standards</li>
+                                <li>Volumetric atmosphere and directional chiaroscuro lighting</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="stage-row">
+                        <div class="stage-header">
+                            <span class="stage-code">STAGE 04</span>
+                            <h3 class="stage-name">SYSTEMS, LIVEOPS & RETENTION UI</h3>
+                            <span class="stage-icon">✦</span>
+                        </div>
+                        <div class="stage-body">
+                            <p>Player-facing menus, shop gacha sinks, in-game audio settings, and retention mechanics built with responsive UI frameworks that scale across PC, Mobile, and Console.</p>
+                            <ul class="stage-list">
+                                <li>Custom settings modal with live audio sliders & lighting toggles</li>
+                                <li>Safe receipt processing for developer products</li>
+                                <li>Daily login reward streaks and gacha currency rolls</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="stage-row">
+                        <div class="stage-header">
+                            <span class="stage-code">STAGE 05</span>
+                            <h3 class="stage-name">QA, PROFILING & ADVERSARIAL HARDENING</h3>
+                            <span class="stage-icon">✦</span>
+                        </div>
+                        <div class="stage-body">
+                            <p>Subjecting remotes to hostile adversarial fuzzing, memory leak profiling via MicroProfiler, and automated unit test matrices before any code reaches production.</p>
+                            <ul class="stage-list">
+                                <li>Rate-limiting on all player RemoteEvent endpoints</li>
+                                <li>MicroProfiler analysis to prevent frame-rate spikes</li>
+                                <li>Automated EzSpec test suites for pure logic modules</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-text">
-                    <div class="section-label">Contact</div>
-                    <h2 class="section-title">Let's create something <span class="highlight">amazing</span></h2>
-                    <p>Have a project in mind? Let's collaborate and bring your game ideas to life.</p>
-                    <div class="contact-links">
-                        <a href="tel:+919313838248" class="contact-link">
-                            <i class="fas fa-phone"></i>
-                            <span>+91 93138 38248</span>
+        <!-- Experience & Track Record (Hairline Table) -->
+        <section class="section exp-section" id="experience">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-num">/ 03</span>
+                    <h2 class="section-title">EXPERIENCE & TRACK RECORD</h2>
+                </div>
+
+                <div class="exp-table">
+                    <div class="exp-row">
+                        <div class="exp-cell-year">2024 - PRESENT</div>
+                        <div class="exp-cell-role">
+                            <strong>Full-Stack Luau Developer & Technical Level Designer</strong>
+                            <span>Independent Contractor & Flagship Creator</span>
+                        </div>
+                        <div class="exp-cell-desc">
+                            Designed and deployed <em>Drawing Studio & Painter's Paradise</em> (custom EditableImage canvas engine, packet chunking) and <em>Pea Game</em> (state machine loop, AI dummy balancing).
+                        </div>
+                    </div>
+
+                    <div class="exp-row">
+                        <div class="exp-cell-year">2024</div>
+                        <div class="exp-cell-role">
+                            <strong>Game Design & Systems Engineer</strong>
+                            <span>Game Genesis Studio</span>
+                        </div>
+                        <div class="exp-cell-desc">
+                            Engineered core gameplay loops, server-authoritative combat systems, inventory state persistence, and multiplayer level layouts.
+                        </div>
+                    </div>
+
+                    <div class="exp-row">
+                        <div class="exp-cell-year">2020 - PRESENT</div>
+                        <div class="exp-cell-role">
+                            <strong>3D Level Designer & Environment Artist</strong>
+                            <span>Unreal Engine (Independent Portfolio)</span>
+                        </div>
+                        <div class="exp-cell-desc">
+                            Built 6 major environmental projects across UE4 and UE5: Base Builder, NYC City Street, Lyra Tactical Arena, Horror Hospital, Horror Farm, and Killzone Retribution.
+                        </div>
+                    </div>
+
+                    <div class="exp-row">
+                        <div class="exp-cell-year">2022 - 2026</div>
+                        <div class="exp-cell-role">
+                            <strong>Bachelor of Technology in Computer Engineering</strong>
+                            <span>Charusat University</span>
+                        </div>
+                        <div class="exp-cell-desc">
+                            Software engineering foundations, data structures, algorithms, network architecture, and memory management.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-num">/ 04</span>
+                    <h2 class="section-title">ABOUT ME</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text-col">
+                        <p class="about-lead">
+                            Most developers specialize in either visual building or programming. I bridge both.
+                        </p>
+                        <p>
+                            I compose high-fidelity 3D environments in Roblox Studio and Unreal Engine while writing memory-safe, exploit-resistant Luau software architectures that support scalable player retention.
+                        </p>
+                        <p>
+                            Backed by <strong>13+ years of competitive gaming experience</strong> (Top 52 COD Mobile National, #1 Asia Shadow Fight 3, 10K+ Minecraft Server Management), I design mechanics with real player feel, weight, and competitive balance in mind.
+                        </p>
+                    </div>
+
+                    <div class="about-stats-col">
+                        <div class="about-stat-card">
+                            <span class="stat-number">13+</span>
+                            <span class="stat-label">Years Competitive Gaming Instinct</span>
+                        </div>
+                        <div class="about-stat-card">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Years 3D Level Design (Unreal Engine)</span>
+                        </div>
+                        <div class="about-stat-card">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Live Roblox Flagships Shipped</span>
+                        </div>
+                        <div class="about-stat-card">
+                            <span class="stat-number">Strict</span>
+                            <span class="stat-label">Server Authority Security Focus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Big Editorial Contact Footer (from Reference Video) -->
+        <section class="section contact-section" id="contact">
+            <div class="container contact-container">
+                <div class="contact-header-block">
+                    <div class="contact-huge-title">
+                        <div class="title-row title-solid">CONTACT</div>
+                        <div class="title-row title-outline">ME</div>
+                    </div>
+
+                    <!-- Rotating Stamp Badge -->
+                    <div class="contact-stamp-wrap">
+                        <div class="rotating-stamp">
+                            <svg viewBox="0 0 100 100" class="stamp-svg">
+                                <path id="contact-stamp-path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                                <text class="stamp-text">
+                                    <textPath href="#contact-stamp-path" startOffset="0%">
+                                        ★ DISCORD @UDAYMAKAWNA ★ LET'S TALK
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="stamp-center-dot"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-action-bar">
+                    <div class="contact-link-row">
+                        <a href="mailto:udaymakawna@gmail.com" class="contact-direct-link email-link" data-copy="udaymakawna@gmail.com">
+                            <span class="link-label">EMAIL:</span>
+                            <span class="link-value">udaymakawna@gmail.com</span>
+                            <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="mailto:udaymakawna@gmail.com" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>udaymakawna@gmail.com</span>
+                        <a href="https://discord.com/users/988292507337101372" target="_blank" class="contact-direct-link discord-link" rel="noopener" data-copy="udaymakawna">
+                            <span class="link-label">DISCORD:</span>
+                            <span class="link-value">@udaymakawna</span>
+                            <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="#" class="contact-link">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Keshod, Gujarat, India</span>
+                        <a href="https://github.com/udaymakawna" target="_blank" class="contact-direct-link" rel="noopener">
+                            <span class="link-label">GITHUB:</span>
+                            <span class="link-value">github.com/udaymakawna</span>
+                            <i class="fas fa-arrow-right"></i>
                         </a>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/uday-makawna" target="_blank" class="social-btn"
-                            title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/udaymakawna" target="_blank" class="social-btn" title="GitHub"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/udaymak7" target="_blank" class="social-btn" title="Twitter/X"><i
-                                class="fab fa-twitter"></i></a>
-                        <a href="https://discord.com/users/lerebel" target="_blank" class="social-btn"
-                            title="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="https://www.roblox.com/games/81793212049100/DrawingGame" target="_blank" class="contact-direct-link" rel="noopener">
+                            <span class="link-label">ROBLOX:</span>
+                            <span class="link-value">Drawing Studio & Painter's Paradise</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <form class="contact-form" id="contact-form">
-                    <div class="form-row">
-                        <input type="text" name="name" placeholder="Name" required>
-                        <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary btn-full">
-                        <span>Send Message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+        <div class="container footer-container">
+            <div class="footer-left">
                 <span class="footer-logo">UM</span>
-                <p>© 2024 Uday Makawna. Crafted with passion for games.</p>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#games">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
+                <span class="footer-copy">&copy; 2026 Uday Makawna. High performance & speed.</span>
+            </div>
+            <div class="footer-right">
+                <a href="#home" class="back-to-top">
+                    <span>Back to top</span>
+                    <i class="fas fa-arrow-up"></i>
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive Lightbox Modal (For Fullscreen Video & 124+ Image Galleries) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <div class="lightbox-dialog">
+            <div class="lightbox-top-bar">
+                <div class="lightbox-info">
+                    <h3 class="lightbox-project-title" id="lightbox-title">Project Title</h3>
+                    <p class="lightbox-project-desc" id="lightbox-desc">Project description</p>
+                </div>
+                <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close dialog">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Main Media Stage -->
+            <div class="lightbox-stage" id="lightbox-stage">
+                <!-- Dynamically populated with either <video> or <img> -->
+            </div>
+
+            <!-- Gallery Controls (Only visible for multi-image projects) -->
+            <div class="lightbox-controls" id="lightbox-controls">
+                <button class="nav-arrow prev" id="lightbox-prev" aria-label="Previous image">
+                    <i class="fas fa-arrow-left"></i> PREV
+                </button>
+                <div class="lightbox-counter">
+                    <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+                </div>
+                <button class="nav-arrow next" id="lightbox-next" aria-label="Next image">
+                    NEXT <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Scrollable Thumbnail Ribbon -->
+            <div class="lightbox-thumbnail-ribbon" id="lightbox-thumbnails"></div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
