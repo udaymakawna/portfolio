@@ -1823,3 +1823,230 @@ html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
         transition: none !important;
     }
 }
+
+/* ===================================================
+   Live Status Badges on Project Tiles
+=================================================== */
+.tag-status {
+    background: rgba(21, 128, 61, 0.08) !important;
+    border-color: rgba(21, 128, 61, 0.3) !important;
+    color: var(--accent-green) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(21, 128, 61, 0.25);
+    animation: pulseDot 2s infinite;
+}
+
+/* ===================================================
+   Multi-Angle Project Card Hover Scrubber
+=================================================== */
+.scrubber-indicator {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    gap: 4px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.project-tile:hover .scrubber-indicator {
+    opacity: 1;
+}
+
+.scrubber-segment {
+    flex: 1;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+    backdrop-filter: blur(4px);
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.scrubber-segment.active {
+    background: #ffffff;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    transform: scaleY(1.3);
+}
+
+/* ===================================================
+   Stage Technical Architecture Schematics
+=================================================== */
+.stage-schematic {
+    margin: 18px 0 20px;
+    background: var(--bg-paper);
+    border: 1px solid var(--border-line);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.schematic-top {
+    padding: 10px 16px;
+    background: #eae6dc;
+    border-bottom: 1px solid var(--border-line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.schematic-badge {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--text-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.schematic-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.schematic-code {
+    padding: 14px 18px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    background: #18181b;
+    color: #f4f4f5;
+    overflow-x: auto;
+}
+
+.code-line {
+    white-space: pre;
+}
+
+.code-comment { color: #71717a; font-style: italic; }
+.code-kw { color: #f43f5e; font-weight: 600; }
+.code-str { color: #34d399; }
+
+.schematic-flow {
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--bg-card);
+    overflow-x: auto;
+}
+
+.flow-step {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 130px;
+}
+
+.step-num {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent-orange);
+}
+
+.flow-step strong {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-ink);
+    letter-spacing: 0.02em;
+}
+
+.flow-step span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.flow-divider {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .schematic-flow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .flow-divider {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+    .stage-row.active .stage-body {
+        max-height: 800px;
+    }
+}
+
+/* ===================================================
+   Dual Discord Action & Conversion Card
+=================================================== */
+.contact-dual-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.contact-dual-wrap .contact-direct-link {
+    flex: 1;
+}
+
+.contact-copy-btn {
+    padding: 0 20px;
+    background: var(--bg-paper);
+    border: 1px solid var(--border-line);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--text-ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.contact-copy-btn:hover {
+    background: var(--text-ink);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.link-action-icon {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.contact-direct-link:hover .link-action-icon {
+    color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+    .contact-dual-wrap {
+        flex-direction: column;
+    }
+    .contact-copy-btn {
+        padding: 12px 18px;
+        justify-content: center;
+    }
+}

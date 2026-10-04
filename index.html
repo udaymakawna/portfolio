@@ -186,6 +186,7 @@
                                 <p class="tile-sub">EditableImage CPU pixel buffers, O(N) shift tool, 195KB packet chunking</p>
                             </div>
                             <div class="tile-pills">
+                                <span class="tag-pill tag-status"><span class="status-dot"></span> LIVE ON ROBLOX</span>
                                 <span class="tag-pill">Full-Stack Luau</span>
                                 <span class="tag-pill">EditableImage</span>
                                 <span class="tag-pill">Packet Chunking</span>
@@ -216,6 +217,7 @@
                                 <p class="tile-sub">Custom settings modal, audio sliders, gacha shop rolls, daily streaks</p>
                             </div>
                             <div class="tile-pills">
+                                <span class="tag-pill tag-status"><span class="status-dot"></span> LIVE ON ROBLOX</span>
                                 <span class="tag-pill">Systems & UI</span>
                                 <span class="tag-pill">Settings Modal</span>
                                 <span class="tag-pill">Gacha Economy</span>
@@ -271,6 +273,7 @@
                                 <p class="tile-sub">State machine game loops, AI dummy balancing, and multiplayer rounds</p>
                             </div>
                             <div class="tile-pills">
+                                <span class="tag-pill tag-status"><span class="status-dot"></span> LIVE ON ROBLOX</span>
                                 <span class="tag-pill">Full-Stack Luau</span>
                                 <span class="tag-pill">State Machines</span>
                                 <span class="tag-pill">AI Dummy Logic</span>
@@ -465,6 +468,21 @@
                         </div>
                         <div class="stage-body">
                             <p>Designing state machines and data persistence before writing gameplay code. Session-locking via ProfileStore, Trove lifecycle cleanup, and strict client boundary RemoteEvent validation schemas using t.</p>
+                            
+                            <div class="stage-schematic">
+                                <div class="schematic-top">
+                                    <span class="schematic-badge"><i class="fas fa-database"></i> SESSION_LOCK_PROTOCOL</span>
+                                    <span class="schematic-sub">ProfileStore + Trove Disconnect Guard</span>
+                                </div>
+                                <div class="schematic-code">
+                                    <div class="code-line"><span class="code-comment">-- 1. Acquire distributed session lock</span></div>
+                                    <div class="code-line"><span class="code-kw">local</span> profile = ProfileStore:LoadProfileAsync(playerKey)</div>
+                                    <div class="code-line"><span class="code-kw">if not</span> profile <span class="code-kw">then</span> player:Kick(<span class="code-str">"Session lock active on another server"</span>) <span class="code-kw">return end</span></div>
+                                    <div class="code-line"><span class="code-comment">-- 2. Bind automatic cleanup on server drop</span></div>
+                                    <div class="code-line">trove:Add(player.AncestryChanged:Connect(<span class="code-kw">function</span>() profile:EndSession() <span class="code-kw">end</span>))</div>
+                                </div>
+                            </div>
+
                             <ul class="stage-list">
                                 <li>Session-locked persistence (zero item loss during server crashes)</li>
                                 <li>Typed schema validation on every network packet</li>
@@ -482,6 +500,39 @@
                         </div>
                         <div class="stage-body">
                             <p>Low-bandwidth multiplayer replication. As demonstrated in the Drawing Studio, we chunk 195KB byte buffers into sequential packets to prevent 50KB/s network throttling.</p>
+                            
+                            <div class="stage-schematic">
+                                <div class="schematic-top">
+                                    <span class="schematic-badge"><i class="fas fa-network-wired"></i> 195KB PACKET CHUNKING PIPELINE</span>
+                                    <span class="schematic-sub">Prevents 50 KB/s Roblox Network Throttling</span>
+                                </div>
+                                <div class="schematic-flow">
+                                    <div class="flow-step">
+                                        <span class="step-num">01</span>
+                                        <strong>195 KB Buffer</strong>
+                                        <span>EditableImage pixel bytes</span>
+                                    </div>
+                                    <div class="flow-divider">➔</div>
+                                    <div class="flow-step">
+                                        <span class="step-num">02</span>
+                                        <strong>Chunk Splitter</strong>
+                                        <span>10 KB sequential payload</span>
+                                    </div>
+                                    <div class="flow-divider">➔</div>
+                                    <div class="flow-step">
+                                        <span class="step-num">03</span>
+                                        <strong>Throttle Budget</strong>
+                                        <span>&lt; 15 KB/s safe window</span>
+                                    </div>
+                                    <div class="flow-divider">➔</div>
+                                    <div class="flow-step">
+                                        <span class="step-num">04</span>
+                                        <strong>Client Reassembly</strong>
+                                        <span>O(N) Shift Draw loop</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <ul class="stage-list">
                                 <li>Chunked buffer transmission with sequence headers</li>
                                 <li>Client-side prediction with server reconciliation</li>
@@ -675,11 +726,17 @@
                             <span class="link-value">udaymakawna@gmail.com</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="https://discord.com/users/988292507337101372" target="_blank" class="contact-direct-link discord-link" rel="noopener" data-copy="udaymakawna">
-                            <span class="link-label">DISCORD:</span>
-                            <span class="link-value">@udaymakawna</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <div class="contact-dual-wrap">
+                            <a href="https://discord.com/users/988292507337101372" target="_blank" class="contact-direct-link discord-link" rel="noopener" data-copy="udaymakawna">
+                                <span class="link-label">DISCORD:</span>
+                                <span class="link-value">@udaymakawna</span>
+                                <i class="fas fa-arrow-up-right-from-square link-action-icon"></i>
+                            </a>
+                            <button type="button" class="contact-copy-btn" data-copy="udaymakawna" aria-label="Copy Discord tag">
+                                <i class="fas fa-copy"></i>
+                                <span>COPY TAG</span>
+                            </button>
+                        </div>
                         <a href="https://github.com/udaymakawna" target="_blank" class="contact-direct-link" rel="noopener">
                             <span class="link-label">GITHUB:</span>
                             <span class="link-value">github.com/udaymakawna</span>

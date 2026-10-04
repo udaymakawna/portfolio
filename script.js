@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initArchitecturalLightbox();
     initDiscordDirectLink();
     initScrollReveals();
+    initProjectHoverScrubber();
 });
 
 // 1. Category Filter System
@@ -241,6 +242,40 @@ function initArchitecturalLightbox() {
         stageEl.innerHTML = '';
     }
 
+    // Mobile Touch Swipe Gestures
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    stageEl.addEventListener('touchstart', (e) => {
+        if (!e.touches || e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    stageEl.addEventListener('touchend', (e) => {
+        if (!galleryImages.length || galleryImages.length <= 1) return;
+        if (!e.changedTouches || e.changedTouches.length !== 1) return;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        // Check horizontal swipe with threshold
+        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4) {
+            if (deltaX < 0) {
+                // Swipe left -> Next Image
+                curIndex = (curIndex + 1) % galleryImages.length;
+                renderImage();
+            } else {
+                // Swipe right -> Prev Image
+                curIndex = (curIndex - 1 + galleryImages.length) % galleryImages.length;
+                renderImage();
+            }
+        }
+    }, { passive: true });
+
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
@@ -264,17 +299,25 @@ function initArchitecturalLightbox() {
 
 // 5. 1-Click Copy & Direct Links (Discord & Email)
 function initDiscordDirectLink() {
-    document.querySelectorAll('.contact-direct-link[data-copy]').forEach(link => {
-        link.addEventListener('click', () => {
-            const textToCopy = link.dataset.copy;
+    document.querySelectorAll('[data-copy]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            const textToCopy = el.dataset.copy;
             if (!textToCopy) return;
 
+            // Dedicated button prevents navigation
+            if (el.tagName.toLowerCase() === 'button') {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
             const isEmail = textToCopy.includes('@') && textToCopy.includes('.');
+            const isCopyBtn = el.classList.contains('contact-copy-btn');
+
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(textToCopy).then(() => {
-                    const msg = isEmail 
+                    let msg = isEmail 
                         ? 'Copied ' + textToCopy + ' to clipboard!' 
-                        : 'Copied @' + textToCopy + ' to clipboard! Opening Discord...';
+                        : (isCopyBtn ? 'Copied @' + textToCopy + ' to clipboard!' : 'Copied @' + textToCopy + ' to clipboard! Opening Discord...');
                     const icon = isEmail ? 'fas fa-envelope' : 'fab fa-discord';
                     showToast(msg, icon);
                 }).catch(() => {
@@ -322,4 +365,59 @@ function initScrollReveals() {
     });
 
     revealItems.forEach(el => observer.observe(el));
+}
+
+// 7. Multi-Angle Project Card Hover Scrubber (For Gallery Projects)
+function initProjectHoverScrubber() {
+    const galleryTiles = document.querySelectorAll('.project-tile[data-type="gallery"]');
+    galleryTiles.forEach(tile => {
+        const mediaWindow = tile.querySelector('.tile-media-window');
+        const img = tile.querySelector('.tile-img');
+        const rawGallery = tile.dataset.gallery;
+        if (!mediaWindow || !img || !rawGallery) return;
+
+        let images = [];
+        try {
+            images = JSON.parse(rawGallery);
+        } catch (e) {
+            return;
+        }
+
+        if (images.length <= 1) return;
+
+        // Take up to 5 key preview images
+        const previewImages = images.slice(0, 5);
+        const originalSrc = img.src;
+
+        // Create scrubber indicator overlay
+        const scrubberBar = document.createElement('div');
+        scrubberBar.className = 'scrubber-indicator';
+        scrubberBar.innerHTML = previewImages.map((_, i) => '<span class="scrubber-segment' + (i === 0 ? ' active' : '') + '"></span>').join('');
+        mediaWindow.appendChild(scrubberBar);
+
+        // Preload preview images quietly
+        previewImages.forEach(src => {
+            const p = new Image();
+            p.src = src;
+        });
+
+        const segments = scrubberBar.querySelectorAll('.scrubber-segment');
+
+        mediaWindow.addEventListener('mousemove', (e) => {
+            const rect = mediaWindow.getBoundingClientRect();
+            const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+            const progress = x / rect.width;
+            const index = Math.min(Math.floor(progress * previewImages.length), previewImages.length - 1);
+
+            if (img.getAttribute('src') !== previewImages[index]) {
+                img.src = previewImages[index];
+                segments.forEach((seg, i) => seg.classList.toggle('active', i === index));
+            }
+        });
+
+        mediaWindow.addEventListener('mouseleave', () => {
+            img.src = originalSrc;
+            segments.forEach((seg, i) => seg.classList.toggle('active', i === 0));
+        });
+    });
 }
