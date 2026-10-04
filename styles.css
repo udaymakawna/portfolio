@@ -38,6 +38,8 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -57,7 +59,26 @@ body {
     overflow-x: hidden;
     position: relative;
     width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+/* ===================================================
+   Global Anti-Aliasing & Smooth Interpolation
+   Prevents pixelation on scaled images, vectors & text
+=================================================== */
+img,
+video {
+    image-rendering: auto;
+    image-rendering: smooth;
+    -ms-interpolation-mode: bicubic;
+}
+
+svg {
+    shape-rendering: geometricPrecision;
+    text-rendering: geometricPrecision;
+}
+
 
 /* ===================================================
    Layout Containers & Section Spacing
@@ -264,15 +285,23 @@ body {
     font-weight: 900;
     text-transform: uppercase;
     word-break: break-word;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .title-solid {
     color: var(--text-ink);
+    text-rendering: geometricPrecision;
 }
 
 .title-outline {
     color: transparent;
     -webkit-text-stroke: 1.8px var(--text-ink);
+    paint-order: stroke fill;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Middle Bio & Rotating Stamp Badge */
@@ -305,6 +334,9 @@ body {
     width: 100%;
     height: 100%;
     animation: rotateStamp 22s linear infinite;
+    shape-rendering: geometricPrecision;
+    text-rendering: geometricPrecision;
+    transform-origin: center center;
 }
 
 @keyframes rotateStamp {
@@ -319,6 +351,9 @@ body {
     letter-spacing: 0.14em;
     fill: var(--text-ink);
     text-transform: uppercase;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .stamp-center-dot {
@@ -466,6 +501,9 @@ body {
     gap: 36px;
     animation: marqueeScroll 28s linear infinite;
     user-select: none;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .marquee-track span {
@@ -631,6 +669,7 @@ body {
     background: #000000;
     border-top: 1px solid var(--border-line);
     border-bottom: 1px solid var(--border-line);
+    isolation: isolate;
 }
 
 .tile-video,
@@ -640,11 +679,17 @@ body {
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
+    image-rendering: auto;
+    image-rendering: smooth;
+    -ms-interpolation-mode: bicubic;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .project-tile:hover .tile-video,
 .project-tile:hover .tile-img {
-    transform: scale(1.03);
+    transform: scale(1.03) translateZ(0);
 }
 
 .media-hover-overlay {
@@ -1224,6 +1269,11 @@ body {
     max-height: 100%;
     object-fit: contain;
     user-select: none;
+    image-rendering: auto;
+    image-rendering: smooth;
+    -ms-interpolation-mode: bicubic;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .lightbox-stage video {
@@ -1308,6 +1358,9 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    image-rendering: auto;
+    image-rendering: smooth;
+    -ms-interpolation-mode: bicubic;
 }
 
 /* ===================================================
