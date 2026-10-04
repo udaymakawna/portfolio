@@ -1,9 +1,18 @@
+// Immediate reset on #home navigation or refresh to guarantee full clearance
+if (typeof window !== 'undefined' && (window.location.hash === '#home' || window.location.hash === '#')) {
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+}
+
 // ===================================================
 // Swiss Editorial Interactive JavaScript
 // Project Filters + Stages Accordion + Multi-Image & Video Lightbox + Mobile Nav
 // ===================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    initHeaderScrollAnchoring();
     initProjectFilters();
     initStagesAccordion();
     initMobileNav();
@@ -426,6 +435,54 @@ function initProjectHoverScrubber() {
         mediaWindow.addEventListener('mouseleave', () => {
             img.src = originalSrc;
             segments.forEach((seg, i) => seg.classList.toggle('active', i === 0));
+        });
+    });
+}
+
+// 8. Header Anchor Navigation & Top Clearance on Load/Refresh
+function initHeaderScrollAnchoring() {
+    // If loaded or refreshed with #home hash in URL, clear hash and ensure scroll is at absolute top
+    if (window.location.hash === '#home' || window.location.hash === '#') {
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        if (history.replaceState) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+    }
+
+    // Intercept clicks on logo heading and any back-to-top links
+    document.querySelectorAll('a[href="#home"], a[href="#"], .nav-logo, .back-to-top').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            if (history.pushState) {
+                history.pushState(null, '', window.location.pathname + window.location.search);
+            }
+        });
+    });
+
+    // Support smooth navigation with header offset for internal section links
+    document.querySelectorAll('a[href^="#"]:not([href="#home"]):not([href="#"])').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href').slice(1);
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                e.preventDefault();
+                const headerHeight = 72;
+                const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 16);
+                window.scrollTo({
+                    top: Math.max(0, targetPos),
+                    behavior: 'smooth'
+                });
+                if (history.pushState) {
+                    history.pushState(null, '', '#' + targetId);
+                }
+            }
         });
     });
 }

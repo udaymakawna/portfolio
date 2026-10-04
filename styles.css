@@ -53,15 +53,18 @@
 }
 
 html {
-    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    scroll-padding-top: 88px;
     font-size: 16px;
     background-color: var(--bg-paper);
     text-rendering: optimizeLegibility;
 }
 
 body {
-    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: var(--font-body);
     background-color: var(--bg-paper);
     color: var(--text-ink);
@@ -84,7 +87,7 @@ video {
 
 svg {
     shape-rendering: geometricPrecision;
-    text-rendering: geometricPrecision;
+    text-rendering: optimizeLegibility;
 }
 
 
@@ -98,10 +101,21 @@ svg {
     padding: 0 32px;
 }
 
+.scroll-top-anchor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 .section {
     padding: 90px 0;
     position: relative;
     border-top: 1px solid var(--border-line);
+    scroll-margin-top: 88px;
 }
 
 /* ===================================================
@@ -271,6 +285,7 @@ svg {
     position: relative;
     padding: 56px 0 72px;
     overflow: hidden;
+    scroll-margin-top: 88px;
 }
 
 .hero-container {
@@ -285,6 +300,9 @@ svg {
     line-height: 0.88;
     letter-spacing: -0.01em;
     user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .title-row {
@@ -293,19 +311,25 @@ svg {
     font-weight: 900;
     text-transform: uppercase;
     word-break: break-word;
-    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .title-solid {
     color: var(--text-ink);
-    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .title-outline {
     color: transparent;
     -webkit-text-stroke: 2px var(--text-ink);
     paint-order: stroke fill;
-    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     transition: var(--transition);
 }
 
@@ -359,7 +383,7 @@ svg {
     letter-spacing: 0.14em;
     fill: var(--text-ink);
     text-transform: uppercase;
-    text-rendering: geometricPrecision;
+    text-rendering: optimizeLegibility;
 }
 
 .stamp-center-dot {
@@ -1818,7 +1842,8 @@ html.js-ready .reveal-item {
 
 html.js-ready .reveal-item.reveal-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    will-change: auto;
 }
 
 /* Stagger delays for hierarchical layout pacing */
@@ -2258,6 +2283,9 @@ html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
     stroke-width: 2.4px;
     stroke-linejoin: round;
     stroke-linecap: round;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     transition: stroke 0.25s ease;
 }
 
