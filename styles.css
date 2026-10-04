@@ -269,14 +269,14 @@ svg {
 =================================================== */
 .hero {
     position: relative;
-    padding: 60px 0 80px;
+    padding: 36px 0 54px;
     overflow: hidden;
 }
 
 .hero-container {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 26px;
 }
 
 .hero-huge-title {
@@ -289,7 +289,7 @@ svg {
 
 .title-row {
     font-family: var(--font-display);
-    font-size: clamp(3.2rem, 11vw, 10.5rem);
+    font-size: clamp(2.8rem, 8.2vw, 8rem);
     font-weight: 900;
     text-transform: uppercase;
     word-break: break-word;
@@ -317,10 +317,10 @@ svg {
 /* Middle Bio & Rotating Stamp Badge */
 .hero-sub-block {
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 140px 1fr;
     align-items: center;
-    gap: 40px;
-    padding: 32px 0;
+    gap: 36px;
+    padding: 22px 0;
     border-top: 1px solid var(--border-line);
     border-bottom: 1px solid var(--border-line);
 }
@@ -333,8 +333,8 @@ svg {
 
 .rotating-stamp {
     position: relative;
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -858,7 +858,7 @@ svg {
 }
 
 .stage-row.active .stage-body {
-    max-height: 320px;
+    max-height: 1200px;
     padding-bottom: 30px;
 }
 
@@ -1593,7 +1593,7 @@ svg {
 }
     .stage-row.active .stage-body {
         padding-bottom: 24px;
-        max-height: 480px;
+        max-height: 1200px;
 }
     .stage-body p {
         font-size: 0.94rem;
@@ -2002,7 +2002,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
         align-self: center;
     }
     .stage-row.active .stage-body {
-        max-height: 800px;
+        max-height: 1200px;
     }
 }
 
@@ -2219,4 +2219,12 @@ html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
     .metric-cell:nth-child(2) {
         border-bottom: 1px solid var(--border-line);
     }
+}
+
+.spec-beacon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-ink);
+    font-weight: 800;
 }
