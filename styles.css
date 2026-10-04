@@ -291,9 +291,15 @@ svg {
 
 .title-outline {
     color: transparent;
-    -webkit-text-stroke: 1.8px var(--text-ink);
+    -webkit-text-stroke: 2px var(--text-ink);
     paint-order: stroke fill;
     text-rendering: geometricPrecision;
+    transition: var(--transition);
+}
+
+.title-outline:hover {
+    color: rgba(20, 20, 20, 0.03);
+    -webkit-text-stroke: 2.2px var(--accent-orange);
 }
 
 /* Middle Bio & Rotating Stamp Badge */
@@ -1770,4 +1776,50 @@ svg {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 }
+}
+
+/* ===================================================
+   Tactile Architectural Paper Grain Overlay
+   Zero extra network overhead; GPU-composited
+=================================================== */
+.paper-grain {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999990;
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    transform: translateZ(0);
+}
+
+/* ===================================================
+   Editorial Scroll-Reveal Micro-Interactions
+=================================================== */
+html.js-ready .reveal-item {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+html.js-ready .reveal-item.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for hierarchical layout pacing */
+html.js-ready .reveal-delay-1 { transition-delay: 0.08s; }
+html.js-ready .reveal-delay-2 { transition-delay: 0.16s; }
+html.js-ready .reveal-delay-3 { transition-delay: 0.24s; }
+html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
+
+@media (prefers-reduced-motion: reduce) {
+    html.js-ready .reveal-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }

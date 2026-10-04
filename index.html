@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
@@ -22,9 +22,12 @@
     <link rel="preload" as="image" href="images/horror lobby/lobby-1.png">
 
     <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.replace('no-js', 'js-ready');</script>
 </head>
 
 <body>
+    <!-- Tactile Architectural Paper Grain Overlay -->
+    <div class="paper-grain" aria-hidden="true"></div>
     <!-- Top Navigation Bar (Architectural 1px Line System) -->
     <header class="header">
         <div class="nav-container">
@@ -61,14 +64,14 @@
         <section class="hero" id="home">
             <div class="container hero-container">
                 <!-- Massive Condensed Architectural Heading -->
-                <div class="hero-huge-title">
+                <div class="hero-huge-title reveal-item">
                     <div class="title-row title-solid">TECHNICAL</div>
                     <div class="title-row title-outline">LEVEL DESIGNER</div>
                     <div class="title-row title-solid">& FULL-STACK LUAU</div>
                 </div>
 
                 <!-- Middle Bio & Rotating Stamp Badge Row -->
-                <div class="hero-sub-block">
+                <div class="hero-sub-block reveal-item reveal-delay-1">
                     <!-- Left: Rotating Circular SVG Stamp Badge -->
                     <div class="stamp-badge-wrap">
                         <div class="rotating-stamp">
@@ -103,7 +106,7 @@
                 </div>
 
                 <!-- 4 Architectural Metric Cells (Hairline Dividers) -->
-                <div class="hero-metrics-grid">
+                <div class="hero-metrics-grid reveal-item reveal-delay-2">
                     <div class="metric-cell">
                         <span class="cell-number">02</span>
                         <div class="cell-label">
@@ -161,8 +164,8 @@
         <!-- Selected Work Section (2-Column Architectural Grid) -->
         <section class="section work-section" id="work">
             <div class="container">
-                <div class="section-header-bar">
-                    <div class="section-title-wrap">
+                <div class="section-header-bar reveal-item">
+                    <div class="section-title-wrap reveal-item">
                         <span class="section-num">/ 01</span>
                         <h2 class="section-title">SELECTED WORK</h2>
                     </div>
@@ -176,7 +179,7 @@
                 <!-- 2-Column Architectural Projects Grid -->
                 <div class="architectural-grid">
                     <!-- Project 1: Drawing Studio Canvas Engine (Video) -->
-                    <article class="project-tile" data-category="roblox" data-type="video" data-video="videos/drawing-engine-showcase.mp4" data-title="Drawing Studio: Canvas Engine & Netcode" data-desc="Procreate-style in-game drawing studio built with low-level EditableImage pixel buffers, O(N) canvas shift tool, and 195KB packet-chunked server replication.">
+                    <article class="project-tile reveal-item" data-category="roblox" data-type="video" data-video="videos/drawing-engine-showcase.mp4" data-title="Drawing Studio: Canvas Engine & Netcode" data-desc="Procreate-style in-game drawing studio built with low-level EditableImage pixel buffers, O(N) canvas shift tool, and 195KB packet-chunked server replication.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">DRAWING STUDIO: CANVAS ENGINE</h3>
@@ -206,7 +209,7 @@
                     </article>
 
                     <!-- Project 2: Drawing Studio LiveOps UI & Shop (Video) -->
-                    <article class="project-tile" data-category="roblox" data-type="video" data-video="videos/drawing-ui-shop-showcase.mp4" data-title="Drawing Studio: In-Game Settings, Shop & Systems" data-desc="Complete custom in-game settings modal, audio volume sliders, day/night lighting toggles, gacha currency rolls, promo code redemption, and daily streak persistence.">
+                    <article class="project-tile reveal-item" data-category="roblox" data-type="video" data-video="videos/drawing-ui-shop-showcase.mp4" data-title="Drawing Studio: In-Game Settings, Shop & Systems" data-desc="Complete custom in-game settings modal, audio volume sliders, day/night lighting toggles, gacha currency rolls, promo code redemption, and daily streak persistence.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">DRAWING STUDIO: LIVEOPS UI & SHOP</h3>
@@ -236,7 +239,7 @@
                     </article>
 
                     <!-- Project 3: Horror Lobby Atmospheric Composition (5 Renders) -->
-                    <article class="project-tile" data-category="roblox" data-type="gallery" data-gallery="[&quot;images/horror lobby/lobby-1.png&quot;,&quot;images/horror lobby/lobby-2.png&quot;,&quot;images/horror lobby/lobby-3.png&quot;,&quot;images/horror lobby/lobby-4.png&quot;,&quot;images/horror lobby/lobby-5.png&quot;]" data-title="Horror Lobby: Atmospheric Composition" data-desc="Chiaroscuro lighting study and modular horror lobby environment in Roblox Studio featuring custom volumetric fog, high-contrast shadow maps, and PBR textures.">
+                    <article class="project-tile reveal-item" data-category="roblox" data-type="gallery" data-gallery="[&quot;images/horror lobby/lobby-1.png&quot;,&quot;images/horror lobby/lobby-2.png&quot;,&quot;images/horror lobby/lobby-3.png&quot;,&quot;images/horror lobby/lobby-4.png&quot;,&quot;images/horror lobby/lobby-5.png&quot;]" data-title="Horror Lobby: Atmospheric Composition" data-desc="Chiaroscuro lighting study and modular horror lobby environment in Roblox Studio featuring custom volumetric fog, high-contrast shadow maps, and PBR textures.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">HORROR LOBBY: ATMOSPHERIC COMPOSITION</h3>
@@ -261,7 +264,7 @@
                     </article>
 
                     <!-- Project 4: Pea Game | Don't Get Caught! (Roblox Flagship) -->
-                    <article class="project-tile" data-category="roblox" data-type="gallery" data-gallery="[&quot;images/horror farm/farm-1.png&quot;,&quot;images/horror farm/farm-2.png&quot;]" data-title="Pea Game | Don't Get Caught!" data-desc="Multiplayer survival experience featuring dynamic AI dummy balancing, state machine round loops, spatial proximity detection, and coin economy.">
+                    <article class="project-tile reveal-item" data-category="roblox" data-type="gallery" data-gallery="[&quot;images/horror farm/farm-1.png&quot;,&quot;images/horror farm/farm-2.png&quot;]" data-title="Pea Game | Don't Get Caught!" data-desc="Multiplayer survival experience featuring dynamic AI dummy balancing, state machine round loops, spatial proximity detection, and coin economy.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">PEA GAME: DON'T GET CAUGHT!</h3>
@@ -291,7 +294,7 @@
                     </article>
 
                     <!-- Project 5: Base Builder Defensive Flow (25 Renders) -->
-                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/base builder/basebuilder-1.png&quot;,&quot;images/base builder/basebuilder-10.png&quot;,&quot;images/base builder/basebuilder-11.png&quot;,&quot;images/base builder/basebuilder-12.png&quot;,&quot;images/base builder/basebuilder-13.png&quot;,&quot;images/base builder/basebuilder-14.png&quot;,&quot;images/base builder/basebuilder-15.png&quot;,&quot;images/base builder/basebuilder-16.png&quot;,&quot;images/base builder/basebuilder-17.png&quot;,&quot;images/base builder/basebuilder-18.png&quot;,&quot;images/base builder/basebuilder-19.png&quot;,&quot;images/base builder/basebuilder-2.png&quot;,&quot;images/base builder/basebuilder-20.png&quot;,&quot;images/base builder/basebuilder-21.png&quot;,&quot;images/base builder/basebuilder-22.png&quot;,&quot;images/base builder/basebuilder-23.png&quot;,&quot;images/base builder/basebuilder-24.png&quot;,&quot;images/base builder/basebuilder-25.png&quot;,&quot;images/base builder/basebuilder-3.png&quot;,&quot;images/base builder/basebuilder-4.png&quot;,&quot;images/base builder/basebuilder-5.png&quot;,&quot;images/base builder/basebuilder-6.png&quot;,&quot;images/base builder/basebuilder-7.png&quot;,&quot;images/base builder/basebuilder-8.png&quot;,&quot;images/base builder/basebuilder-9.png&quot;]" data-title="Base Builder: Defensive Level Architecture" data-desc="Modular defensive compound featuring fortified chokepoints, layered perimeter sightlines, vertical sniper perches, and interior cover lanes.">
+                    <article class="project-tile reveal-item" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/base builder/basebuilder-1.png&quot;,&quot;images/base builder/basebuilder-10.png&quot;,&quot;images/base builder/basebuilder-11.png&quot;,&quot;images/base builder/basebuilder-12.png&quot;,&quot;images/base builder/basebuilder-13.png&quot;,&quot;images/base builder/basebuilder-14.png&quot;,&quot;images/base builder/basebuilder-15.png&quot;,&quot;images/base builder/basebuilder-16.png&quot;,&quot;images/base builder/basebuilder-17.png&quot;,&quot;images/base builder/basebuilder-18.png&quot;,&quot;images/base builder/basebuilder-19.png&quot;,&quot;images/base builder/basebuilder-2.png&quot;,&quot;images/base builder/basebuilder-20.png&quot;,&quot;images/base builder/basebuilder-21.png&quot;,&quot;images/base builder/basebuilder-22.png&quot;,&quot;images/base builder/basebuilder-23.png&quot;,&quot;images/base builder/basebuilder-24.png&quot;,&quot;images/base builder/basebuilder-25.png&quot;,&quot;images/base builder/basebuilder-3.png&quot;,&quot;images/base builder/basebuilder-4.png&quot;,&quot;images/base builder/basebuilder-5.png&quot;,&quot;images/base builder/basebuilder-6.png&quot;,&quot;images/base builder/basebuilder-7.png&quot;,&quot;images/base builder/basebuilder-8.png&quot;,&quot;images/base builder/basebuilder-9.png&quot;]" data-title="Base Builder: Defensive Level Architecture" data-desc="Modular defensive compound featuring fortified chokepoints, layered perimeter sightlines, vertical sniper perches, and interior cover lanes.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">BASE BUILDER: DEFENSIVE FLOW</h3>
@@ -316,7 +319,7 @@
                     </article>
 
                     <!-- Project 6: NYC City: Urban Streetscape (30 Renders) -->
-                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/nyc city/nyc-1.png&quot;,&quot;images/nyc city/nyc-10.png&quot;,&quot;images/nyc city/nyc-11.png&quot;,&quot;images/nyc city/nyc-12.png&quot;,&quot;images/nyc city/nyc-13.png&quot;,&quot;images/nyc city/nyc-14.png&quot;,&quot;images/nyc city/nyc-15.png&quot;,&quot;images/nyc city/nyc-16.png&quot;,&quot;images/nyc city/nyc-17.png&quot;,&quot;images/nyc city/nyc-18.png&quot;,&quot;images/nyc city/nyc-19.png&quot;,&quot;images/nyc city/nyc-2.png&quot;,&quot;images/nyc city/nyc-20.png&quot;,&quot;images/nyc city/nyc-21.png&quot;,&quot;images/nyc city/nyc-22.png&quot;,&quot;images/nyc city/nyc-23.png&quot;,&quot;images/nyc city/nyc-24.png&quot;,&quot;images/nyc city/nyc-25.png&quot;,&quot;images/nyc city/nyc-26.png&quot;,&quot;images/nyc city/nyc-27.png&quot;,&quot;images/nyc city/nyc-28.png&quot;,&quot;images/nyc city/nyc-29.png&quot;,&quot;images/nyc city/nyc-3.png&quot;,&quot;images/nyc city/nyc-30.png&quot;,&quot;images/nyc city/nyc-4.png&quot;,&quot;images/nyc city/nyc-5.png&quot;,&quot;images/nyc city/nyc-6.png&quot;,&quot;images/nyc city/nyc-7.png&quot;,&quot;images/nyc city/nyc-8.png&quot;,&quot;images/nyc city/nyc-9.png&quot;]" data-title="NYC City: Urban Streetscape & Atmosphere" data-desc="Metropolitan street canyon level design capturing vertical sightlines, dense street-level dressing, and atmospheric neon night lighting.">
+                    <article class="project-tile reveal-item" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/nyc city/nyc-1.png&quot;,&quot;images/nyc city/nyc-10.png&quot;,&quot;images/nyc city/nyc-11.png&quot;,&quot;images/nyc city/nyc-12.png&quot;,&quot;images/nyc city/nyc-13.png&quot;,&quot;images/nyc city/nyc-14.png&quot;,&quot;images/nyc city/nyc-15.png&quot;,&quot;images/nyc city/nyc-16.png&quot;,&quot;images/nyc city/nyc-17.png&quot;,&quot;images/nyc city/nyc-18.png&quot;,&quot;images/nyc city/nyc-19.png&quot;,&quot;images/nyc city/nyc-2.png&quot;,&quot;images/nyc city/nyc-20.png&quot;,&quot;images/nyc city/nyc-21.png&quot;,&quot;images/nyc city/nyc-22.png&quot;,&quot;images/nyc city/nyc-23.png&quot;,&quot;images/nyc city/nyc-24.png&quot;,&quot;images/nyc city/nyc-25.png&quot;,&quot;images/nyc city/nyc-26.png&quot;,&quot;images/nyc city/nyc-27.png&quot;,&quot;images/nyc city/nyc-28.png&quot;,&quot;images/nyc city/nyc-29.png&quot;,&quot;images/nyc city/nyc-3.png&quot;,&quot;images/nyc city/nyc-30.png&quot;,&quot;images/nyc city/nyc-4.png&quot;,&quot;images/nyc city/nyc-5.png&quot;,&quot;images/nyc city/nyc-6.png&quot;,&quot;images/nyc city/nyc-7.png&quot;,&quot;images/nyc city/nyc-8.png&quot;,&quot;images/nyc city/nyc-9.png&quot;]" data-title="NYC City: Urban Streetscape & Atmosphere" data-desc="Metropolitan street canyon level design capturing vertical sightlines, dense street-level dressing, and atmospheric neon night lighting.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">NYC CITY: URBAN STREETSCAPE</h3>
@@ -341,7 +344,7 @@
                     </article>
 
                     <!-- Project 7: Lyra Tactical Arena Shooter (12 Renders) -->
-                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/LYRA/lyra-1.png&quot;,&quot;images/LYRA/lyra-10.png&quot;,&quot;images/LYRA/lyra-11.png&quot;,&quot;images/LYRA/lyra-12.png&quot;,&quot;images/LYRA/lyra-2.png&quot;,&quot;images/LYRA/lyra-3.png&quot;,&quot;images/LYRA/lyra-4.png&quot;,&quot;images/LYRA/lyra-5.png&quot;,&quot;images/LYRA/lyra-6.png&quot;,&quot;images/LYRA/lyra-7.png&quot;,&quot;images/LYRA/lyra-8.png&quot;,&quot;images/LYRA/lyra-9.png&quot;]" data-title="Lyra: Tactical Arena Shooter" data-desc="Fast-paced competitive shooter arena layout with carefully timed engagement lanes, dynamic cover rotation, and multi-tier sightlines.">
+                    <article class="project-tile reveal-item" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/LYRA/lyra-1.png&quot;,&quot;images/LYRA/lyra-10.png&quot;,&quot;images/LYRA/lyra-11.png&quot;,&quot;images/LYRA/lyra-12.png&quot;,&quot;images/LYRA/lyra-2.png&quot;,&quot;images/LYRA/lyra-3.png&quot;,&quot;images/LYRA/lyra-4.png&quot;,&quot;images/LYRA/lyra-5.png&quot;,&quot;images/LYRA/lyra-6.png&quot;,&quot;images/LYRA/lyra-7.png&quot;,&quot;images/LYRA/lyra-8.png&quot;,&quot;images/LYRA/lyra-9.png&quot;]" data-title="Lyra: Tactical Arena Shooter" data-desc="Fast-paced competitive shooter arena layout with carefully timed engagement lanes, dynamic cover rotation, and multi-tier sightlines.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">LYRA: TACTICAL ARENA SHOOTER</h3>
@@ -366,7 +369,7 @@
                     </article>
 
                     <!-- Project 8: Horror Hospital Environmental Storytelling (6 Renders) -->
-                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/horror hospital/horror-1.png&quot;,&quot;images/horror hospital/horror-2.png&quot;,&quot;images/horror hospital/horror-3.png&quot;,&quot;images/horror hospital/horror-4.png&quot;,&quot;images/horror hospital/horror-5.png&quot;,&quot;images/horror hospital/horror-6.png&quot;]" data-title="Horror Hospital: Environmental Storytelling" data-desc="Abandoned medical facility designed around psychological dread, claustrophobic hallways, directional audio cues, and chiaroscuro lighting.">
+                    <article class="project-tile reveal-item" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/horror hospital/horror-1.png&quot;,&quot;images/horror hospital/horror-2.png&quot;,&quot;images/horror hospital/horror-3.png&quot;,&quot;images/horror hospital/horror-4.png&quot;,&quot;images/horror hospital/horror-5.png&quot;,&quot;images/horror hospital/horror-6.png&quot;]" data-title="Horror Hospital: Environmental Storytelling" data-desc="Abandoned medical facility designed around psychological dread, claustrophobic hallways, directional audio cues, and chiaroscuro lighting.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">HORROR HOSPITAL: PSYCHOLOGICAL TENSION</h3>
@@ -391,7 +394,7 @@
                     </article>
 
                     <!-- Project 9: Horror Farm Open Tension & Foliage (25 Renders) -->
-                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/horror farm/farm-1.png&quot;,&quot;images/horror farm/farm-10.png&quot;,&quot;images/horror farm/farm-11.png&quot;,&quot;images/horror farm/farm-12.png&quot;,&quot;images/horror farm/farm-13.png&quot;,&quot;images/horror farm/farm-14.png&quot;,&quot;images/horror farm/farm-15.png&quot;,&quot;images/horror farm/farm-16.png&quot;,&quot;images/horror farm/farm-17.png&quot;,&quot;images/horror farm/farm-18.png&quot;,&quot;images/horror farm/farm-19.png&quot;,&quot;images/horror farm/farm-2.png&quot;,&quot;images/horror farm/farm-20.png&quot;,&quot;images/horror farm/farm-21.png&quot;,&quot;images/horror farm/farm-22.png&quot;,&quot;images/horror farm/farm-23.png&quot;,&quot;images/horror farm/farm-24.png&quot;,&quot;images/horror farm/farm-25.png&quot;,&quot;images/horror farm/farm-3.png&quot;,&quot;images/horror farm/farm-4.png&quot;,&quot;images/horror farm/farm-5.png&quot;,&quot;images/horror farm/farm-6.png&quot;,&quot;images/horror farm/farm-7.png&quot;,&quot;images/horror farm/farm-8.png&quot;,&quot;images/horror farm/farm-9.png&quot;]" data-title="Horror Farm: Open-World Tension" data-desc="Large rural agricultural environment with dense foliage, cornfield sightline breaks, barn chokepoints, and oppressive night fog.">
+                    <article class="project-tile reveal-item" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/horror farm/farm-1.png&quot;,&quot;images/horror farm/farm-10.png&quot;,&quot;images/horror farm/farm-11.png&quot;,&quot;images/horror farm/farm-12.png&quot;,&quot;images/horror farm/farm-13.png&quot;,&quot;images/horror farm/farm-14.png&quot;,&quot;images/horror farm/farm-15.png&quot;,&quot;images/horror farm/farm-16.png&quot;,&quot;images/horror farm/farm-17.png&quot;,&quot;images/horror farm/farm-18.png&quot;,&quot;images/horror farm/farm-19.png&quot;,&quot;images/horror farm/farm-2.png&quot;,&quot;images/horror farm/farm-20.png&quot;,&quot;images/horror farm/farm-21.png&quot;,&quot;images/horror farm/farm-22.png&quot;,&quot;images/horror farm/farm-23.png&quot;,&quot;images/horror farm/farm-24.png&quot;,&quot;images/horror farm/farm-25.png&quot;,&quot;images/horror farm/farm-3.png&quot;,&quot;images/horror farm/farm-4.png&quot;,&quot;images/horror farm/farm-5.png&quot;,&quot;images/horror farm/farm-6.png&quot;,&quot;images/horror farm/farm-7.png&quot;,&quot;images/horror farm/farm-8.png&quot;,&quot;images/horror farm/farm-9.png&quot;]" data-title="Horror Farm: Open-World Tension" data-desc="Large rural agricultural environment with dense foliage, cornfield sightline breaks, barn chokepoints, and oppressive night fog.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">HORROR FARM: OPEN TENSION & VEGETATION</h3>
@@ -416,7 +419,7 @@
                     </article>
 
                     <!-- Project 10: Killzone Retribution Brutalist Battlefield (21 Renders) -->
-                    <article class="project-tile" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/Killzone Retribution/killzone-1.png&quot;,&quot;images/Killzone Retribution/killzone-10.png&quot;,&quot;images/Killzone Retribution/killzone-11.png&quot;,&quot;images/Killzone Retribution/killzone-12.png&quot;,&quot;images/Killzone Retribution/killzone-13.png&quot;,&quot;images/Killzone Retribution/killzone-14.png&quot;,&quot;images/Killzone Retribution/killzone-15.png&quot;,&quot;images/Killzone Retribution/killzone-16.png&quot;,&quot;images/Killzone Retribution/killzone-17.png&quot;,&quot;images/Killzone Retribution/killzone-18.png&quot;,&quot;images/Killzone Retribution/killzone-19.png&quot;,&quot;images/Killzone Retribution/killzone-2.png&quot;,&quot;images/Killzone Retribution/killzone-20.png&quot;,&quot;images/Killzone Retribution/killzone-21.png&quot;,&quot;images/Killzone Retribution/killzone-3.png&quot;,&quot;images/Killzone Retribution/killzone-4.png&quot;,&quot;images/Killzone Retribution/killzone-5.png&quot;,&quot;images/Killzone Retribution/killzone-6.png&quot;,&quot;images/Killzone Retribution/killzone-7.png&quot;,&quot;images/Killzone Retribution/killzone-8.png&quot;,&quot;images/Killzone Retribution/killzone-9.png&quot;]" data-title="Killzone Retribution: Tactical Level Design" data-desc="Industrial warzone level layout focusing on high-ground perches, brutalist concrete barriers, fortified bunker choke points, and flanking routes.">
+                    <article class="project-tile reveal-item" data-category="unreal" data-type="gallery" data-gallery="[&quot;images/Killzone Retribution/killzone-1.png&quot;,&quot;images/Killzone Retribution/killzone-10.png&quot;,&quot;images/Killzone Retribution/killzone-11.png&quot;,&quot;images/Killzone Retribution/killzone-12.png&quot;,&quot;images/Killzone Retribution/killzone-13.png&quot;,&quot;images/Killzone Retribution/killzone-14.png&quot;,&quot;images/Killzone Retribution/killzone-15.png&quot;,&quot;images/Killzone Retribution/killzone-16.png&quot;,&quot;images/Killzone Retribution/killzone-17.png&quot;,&quot;images/Killzone Retribution/killzone-18.png&quot;,&quot;images/Killzone Retribution/killzone-19.png&quot;,&quot;images/Killzone Retribution/killzone-2.png&quot;,&quot;images/Killzone Retribution/killzone-20.png&quot;,&quot;images/Killzone Retribution/killzone-21.png&quot;,&quot;images/Killzone Retribution/killzone-3.png&quot;,&quot;images/Killzone Retribution/killzone-4.png&quot;,&quot;images/Killzone Retribution/killzone-5.png&quot;,&quot;images/Killzone Retribution/killzone-6.png&quot;,&quot;images/Killzone Retribution/killzone-7.png&quot;,&quot;images/Killzone Retribution/killzone-8.png&quot;,&quot;images/Killzone Retribution/killzone-9.png&quot;]" data-title="Killzone Retribution: Tactical Level Design" data-desc="Industrial warzone level layout focusing on high-ground perches, brutalist concrete barriers, fortified bunker choke points, and flanking routes.">
                         <div class="tile-header">
                             <div class="tile-title-col">
                                 <h3 class="tile-title">KILLZONE RETRIBUTION: WARZONE LEVEL DESIGN</h3>
@@ -454,7 +457,7 @@
 
                 <div class="stages-accordion">
                     <!-- Stage 1 -->
-                    <div class="stage-row active">
+                    <div class="stage-row active reveal-item">
                         <div class="stage-header">
                             <span class="stage-code">STAGE 01</span>
                             <h3 class="stage-name">ARCHITECTURE & DATA SCHEMAS</h3>
@@ -471,7 +474,7 @@
                     </div>
 
                     <!-- Stage 2 -->
-                    <div class="stage-row">
+                    <div class="stage-row reveal-item">
                         <div class="stage-header">
                             <span class="stage-code">STAGE 02</span>
                             <h3 class="stage-name">NETCODE & PACKET REPLICATION</h3>
@@ -488,7 +491,7 @@
                     </div>
 
                     <!-- Stage 3 -->
-                    <div class="stage-row">
+                    <div class="stage-row reveal-item">
                         <div class="stage-header">
                             <span class="stage-code">STAGE 03</span>
                             <h3 class="stage-name">3D COMPOSITION & SIGHTLINE PACING</h3>
@@ -505,7 +508,7 @@
                     </div>
 
                     <!-- Stage 4 -->
-                    <div class="stage-row">
+                    <div class="stage-row reveal-item">
                         <div class="stage-header">
                             <span class="stage-code">STAGE 04</span>
                             <h3 class="stage-name">SYSTEMS, LIVEOPS & RETENTION UI</h3>
@@ -522,7 +525,7 @@
                     </div>
 
                     <!-- Stage 5 -->
-                    <div class="stage-row">
+                    <div class="stage-row reveal-item">
                         <div class="stage-header">
                             <span class="stage-code">STAGE 05</span>
                             <h3 class="stage-name">QA, PROFILING & ADVERSARIAL HARDENING</h3>
@@ -550,7 +553,7 @@
                 </div>
 
                 <div class="exp-table">
-                    <div class="exp-row">
+                    <div class="exp-row reveal-item">
                         <div class="exp-cell-year">2024 - PRESENT</div>
                         <div class="exp-cell-role">
                             <strong>Full-Stack Luau Developer & Technical Level Designer</strong>
@@ -561,7 +564,7 @@
                         </div>
                     </div>
 
-                    <div class="exp-row">
+                    <div class="exp-row reveal-item">
                         <div class="exp-cell-year">2024</div>
                         <div class="exp-cell-role">
                             <strong>Game Design & Systems Engineer</strong>
@@ -572,7 +575,7 @@
                         </div>
                     </div>
 
-                    <div class="exp-row">
+                    <div class="exp-row reveal-item">
                         <div class="exp-cell-year">2020 - PRESENT</div>
                         <div class="exp-cell-role">
                             <strong>3D Level Designer & Environment Artist</strong>
@@ -583,7 +586,7 @@
                         </div>
                     </div>
 
-                    <div class="exp-row">
+                    <div class="exp-row reveal-item">
                         <div class="exp-cell-year">2022 - 2026</div>
                         <div class="exp-cell-role">
                             <strong>Bachelor of Technology in Computer Engineering</strong>
@@ -605,7 +608,7 @@
                     <h2 class="section-title">ABOUT ME</h2>
                 </div>
 
-                <div class="about-grid">
+                <div class="about-grid reveal-item">
                     <div class="about-text-col">
                         <p class="about-lead">
                             Most developers specialize in either visual building or programming. I bridge both.
@@ -643,7 +646,7 @@
         <!-- Big Editorial Contact Footer (from Reference Video) -->
         <section class="section contact-section" id="contact">
             <div class="container contact-container">
-                <div class="contact-header-block">
+                <div class="contact-header-block reveal-item">
                     <div class="contact-huge-title">
                         <div class="title-row title-solid">CONTACT</div>
                         <div class="title-row title-outline">ME</div>
@@ -665,7 +668,7 @@
                     </div>
                 </div>
 
-                <div class="contact-action-bar">
+                <div class="contact-action-bar reveal-item reveal-delay-1">
                     <div class="contact-link-row">
                         <a href="mailto:udaymakawna@gmail.com" class="contact-direct-link email-link" data-copy="udaymakawna@gmail.com">
                             <span class="link-label">EMAIL:</span>

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initArchitecturalLightbox();
     initDiscordDirectLink();
+    initScrollReveals();
 });
 
 // 1. Category Filter System
@@ -296,4 +297,29 @@ function initDiscordDirectLink() {
         setTimeout(() => toast.classList.add('show'), 10);
         setTimeout(() => toast.classList.remove('show'), 4000);
     }
+}
+
+// 6. Editorial Scroll-Reveal Observer
+function initScrollReveals() {
+    const revealItems = document.querySelectorAll('.reveal-item');
+    if (!revealItems.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        revealItems.forEach(el => el.classList.add('reveal-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -30px 0px'
+    });
+
+    revealItems.forEach(el => observer.observe(el));
 }
