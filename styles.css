@@ -31,6 +31,18 @@
     --radius-pill: 9999px;
 
     --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* 8pt / 16pt Architectural Spacing Scale */
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+
 }
 
 *, *::before, *::after {
@@ -2083,4 +2095,128 @@ html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
 .contact-direct-link:hover .link-action-icon {
     color: var(--text-light);
     transform: translate(2px, -2px);
+}
+
+/* ===================================================
+   Architectural Monograph Metadata Strip
+=================================================== */
+.hero-spec-tagline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-subtle);
+    flex-wrap: wrap;
+    user-select: none;
+}
+
+.spec-separator {
+    color: var(--accent-orange);
+    font-size: 0.75rem;
+}
+
+/* ===================================================
+   Blueprint Corner Registration Marks on Project Cards
+=================================================== */
+.project-tile .corner-mark {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--border-subtle);
+    pointer-events: none;
+    line-height: 1;
+    z-index: 5;
+    transition: color 0.25s ease, transform 0.25s ease;
+    user-select: none;
+}
+
+.project-tile .corner-tl { top: 4px; left: 6px; }
+.project-tile .corner-tr { top: 4px; right: 6px; }
+.project-tile .corner-bl { bottom: 4px; left: 6px; }
+.project-tile .corner-br { bottom: 4px; right: 6px; }
+
+.project-tile:hover .corner-mark {
+    color: var(--accent-orange);
+    transform: scale(1.35);
+}
+
+/* ===================================================
+   Interactive Motion: Marquee Hover Pause & Stamp Reaction
+=================================================== */
+.marquee-strip:hover .marquee-track {
+    animation-play-state: paused;
+    cursor: default;
+}
+
+.rotating-stamp {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+.rotating-stamp:hover {
+    transform: scale(1.08);
+}
+
+.rotating-stamp:hover .stamp-svg {
+    animation-duration: 10s;
+}
+
+.rotating-stamp:hover .stamp-center-dot {
+    box-shadow: 0 0 0 7px rgba(21, 128, 61, 0.35);
+}
+
+/* Button & Pill Micro-Elevation */
+.editorial-btn:hover {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.filter-pill {
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ===================================================
+   Responsive Tablet & Small Laptop Refinements (769px - 1100px)
+=================================================== */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .architectural-grid {
+        gap: 24px;
+    }
+    .tile-header {
+        padding: 18px 20px;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .tile-title {
+        font-size: 1.6rem;
+    }
+    .tile-pills {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .hero-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .metric-cell:nth-child(2) {
+        border-right: none;
+    }
+    .metric-cell:nth-child(1),
+    .metric-cell:nth-child(2) {
+        border-bottom: 1px solid var(--border-line);
+    }
 }
