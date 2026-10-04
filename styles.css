@@ -269,14 +269,14 @@ svg {
 =================================================== */
 .hero {
     position: relative;
-    padding: 36px 0 54px;
+    padding: 56px 0 72px;
     overflow: hidden;
 }
 
 .hero-container {
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 38px;
 }
 
 .hero-huge-title {
@@ -317,12 +317,11 @@ svg {
 /* Middle Bio & Rotating Stamp Badge */
 .hero-sub-block {
     display: grid;
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 145px 1fr;
     align-items: center;
     gap: 36px;
-    padding: 22px 0;
-    border-top: 1px solid var(--border-line);
-    border-bottom: 1px solid var(--border-line);
+    padding: 10px 0;
+    /* open uncluttered editorial layout */
 }
 
 .stamp-badge-wrap {
@@ -333,8 +332,7 @@ svg {
 
 .rotating-stamp {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 136px; height: 136px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -444,6 +442,7 @@ svg {
     grid-template-columns: repeat(4, 1fr);
     border: 1px solid var(--border-line);
     background: var(--bg-card);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
 .metric-cell {
@@ -2111,7 +2110,7 @@ html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
     color: var(--text-muted);
     text-transform: uppercase;
     padding-bottom: 12px;
-    border-bottom: 1px dashed var(--border-subtle);
+    /* border removed for clean open feel */
     flex-wrap: wrap;
     user-select: none;
 }
@@ -2227,4 +2226,47 @@ html.js-ready .reveal-delay-4 { transition-delay: 0.32s; }
     gap: 6px;
     color: var(--text-ink);
     font-weight: 800;
+}
+
+/* ===================================================
+   Pure Vector SVG Outline Title (Zero Pixelation)
+=================================================== */
+.title-outline-row {
+    display: flex;
+    align-items: center;
+    line-height: 0.95;
+    margin: -2px 0;
+}
+
+.title-svg-outline {
+    width: 100%;
+    max-width: 920px;
+    height: auto;
+    max-height: clamp(3.2rem, 9.4vw, 9.2rem);
+    display: block;
+    overflow: visible;
+}
+
+.svg-stroke-text {
+    font-family: var(--font-display);
+    font-size: 106px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    fill: none;
+    stroke: var(--text-ink);
+    stroke-width: 2.4px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    transition: stroke 0.25s ease;
+}
+
+.title-outline-row:hover .svg-stroke-text {
+    stroke: var(--accent-orange);
+}
+
+@media (max-width: 768px) {
+    .title-svg-outline {
+        max-height: clamp(2.4rem, 13vw, 4.4rem);
+    }
 }
