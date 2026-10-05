@@ -124,6 +124,7 @@ function initArchitecturalLightbox() {
 
     // Attach click listener to each project tile
     document.querySelectorAll('.project-tile').forEach(tile => {
+        if (tile.classList.contains('architecture-breakdown-banner')) return;
         tile.addEventListener('click', () => {
             const type = tile.dataset.type || 'gallery';
             const title = tile.dataset.title || 'Project';
