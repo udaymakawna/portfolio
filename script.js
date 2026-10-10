@@ -29,8 +29,8 @@ function initProjectFilters() {
 
     if (!filterPills.length || !tiles.length) return;
 
-    // Default to 'roblox'
-    applyFilter('roblox');
+    // Default to 'all'
+    applyFilter('all');
 
     filterPills.forEach(pill => {
         pill.addEventListener('click', (e) => {
